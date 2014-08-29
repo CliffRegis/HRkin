@@ -4,10 +4,16 @@
   <title>Hrkin</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+  <ul>
+    <ul class="nav nav-tabs">
+      <li><%= link_to "HRkin", root_path %></li>
+      <li><%= link_to "Topics", topics_path %></li>
+      <li><%= link_to "Posts", posts_path %></li>        
+    </ul>
 <%= yield %>
 
 </body>
