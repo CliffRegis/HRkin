@@ -1,0 +1,15 @@
+<h3>User details</h3>
+
+<%= @user.username %>
+<%= @user.email %>
+<% if current_user.friends_with?(@user) %>
+  <%= form_tag "/users/#{current_user.id}/friendships/#{@user.id}" do |form| %>
+    <%= hidden_field_tag :old_friend_id, @user.id %>
+    <%= submit_tag 'Remove friend' %>
+  <% end %>
+<% elsif current_user != @user %>
+  <%= form_tag "/users/#{current_user.id}/friendships" do |form| %>
+    <%= hidden_field_tag :new_friend_id, @user.id %>
+    <%= submit_tag 'Add friend' %>
+  <% end %>
+<% end %>
