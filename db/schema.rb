@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20140829125848) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.text     "comments"
+    t.integer  "comment_id"
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
