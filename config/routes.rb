@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+  
   devise_for :users
-  resources :users, only: [:update, :show, :index]
+  resources :users, only: [:update, :show, :index] do
+    resources :friendships, only: [:create, :destroy]
+  end
+
   resources :topics do
     resources :posts, except: [:index], controller: 'topics/posts'
   end
@@ -10,6 +14,10 @@ Rails.application.routes.draw do
   end
   
   get 'about' => 'welcome#about'
+
+  authenticated :user do
+    root to: 'topics#index', as: 'authenticated_root'
+  end
  
   root to: 'welcome#index'
   
