@@ -11,6 +11,11 @@ class FriendshipsController < ApplicationController
 
   def destroy
     @user = User.find(params[:old_friend_id])
+    if current_user.unfriend(@user)
+      redirect_to @user, notice: 'Unfriended'
+    else
+      redirect_to @user, alert: 'Unfriending failed'
+    end
   end
   
     
