@@ -1,17 +1,16 @@
-<h1>Editing topic</h1>
+<h1>Editing post</h1>
 <div class="row">
   <div class="col-md-4">
-    <p>Guidelines for topics:</p>
+    <p>Guidelines for post:</p>
     <ul>
       <li>Is the topic is appropriate.</li>
       <li>Never insult anyone.</li>
       <li>Focus and type.</li>
     </ul>
-  
+ 
 <%= render 'form' %>
-</div>
-</div>
-<br>
-<%= link_to 'Show', @topic %> |
-<%= link_to 'Back', topics_path %>
 
+<%= link_to 'Show', topic_post_path(@topic, @post) %> |
+<%= link_to 'Back', topics_path %>
+</div>
+</div>

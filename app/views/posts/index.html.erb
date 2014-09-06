@@ -5,13 +5,13 @@
   <div class="media">
     <div class="media-body">
       <h4 class="media-heading">
-        <%= link_to post.title  %>
+        <%= link_to post.title %>
       </h4>
       <h5>
-        <%= post.content %>
+        <%= @post %>
       </h5>
       <small>
-        submitted <%= time_ago_in_words(post.created_at) %> ago 
+        submitted by <%= @post.username %> <%= time_ago_in_words(post.created_at) %> ago 
       </small>
       <%= link_to 'Back', posts_path(@topic,@post) %>
     </div>
@@ -19,3 +19,5 @@
 <% end %>
 <br>
  <%= link_to 'New Post', new_post_path(@topic,@post) %>
+
+ 

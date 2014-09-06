@@ -10,12 +10,12 @@
       <h5>
         <%= topic.content %>
       </h5>
-      <%= link_to 'Show', topic %>
+     
       <%= link_to 'Edit', edit_topic_path(topic) %>
-      <%= link_to 'Back', topics_path(@topic,@post) %>
       <%= link_to 'Destroy', topic, method: :delete, data: { confirm: 'Are you sure?' } %>
     </div>
   </div>
 <% end %>
 <br>
- <%= link_to 'New Topic', new_topic_path %>
+<br>
+ <%= link_to 'New Topic', new_topic_path, class: "alert alert-success"  %>

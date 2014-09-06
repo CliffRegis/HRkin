@@ -1,14 +1,26 @@
-<p id="notice"><%= notice %></p>
+<p id="notice"> <%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @topic.title %>
-</p>
+<h1> <%= @topic.title %></h1>
 
-<p>
-  <strong>Content:</strong>
-  <%= @topic.content %>
-</p>
+<p>  <%= @topic.content %> </p>
 
-<%= link_to 'Edit', edit_topic_path(@topic) %> |
+<%= link_to 'Edit Topic', edit_topic_path(@topic) %> |
 <%= link_to 'Back', topics_path %>
+
+
+<div> <h2> Posts </h2>
+<% @posts.each do |post| %>
+  <div class="media">
+    <div class="media-body">
+      <h4 class="media-heading">
+       <%= link_to post.title, [@topic, post] %>
+     </h4>
+    
+    </div> 
+  </div>
+<% end %>
+<br>
+
+<%= link_to 'New Post', new_topic_post_path(@topic, @post) %> 
+      
+
