@@ -3,6 +3,7 @@
 
 <% @posts.each do |post| %>
   <div class="media">
+   <%= render partial: 'votes/vote', locals: { post: post} %>
     <div class="media-body">
       <h4 class="media-heading">
         <%= link_to post.title %>
@@ -14,10 +15,12 @@
         submitted by <%= @post.username %> <%= time_ago_in_words(post.created_at) %> ago 
       </small>
       <%= link_to 'Back', posts_path(@topic,@post) %>
+       <%= link_to 'New Post', new_post_path(@topic,@post), class: 'btn btn-success' 'alert alert-success' %>
+      <%= will_paginate @posts %>
     </div>
   </div>
 <% end %>
 <br>
- <%= link_to 'New Post', new_post_path(@topic,@post) %>
+
 
  

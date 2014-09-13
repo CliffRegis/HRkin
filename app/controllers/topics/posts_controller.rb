@@ -10,6 +10,7 @@ class Topics::PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comments = @post.comments
     @comment = Comment.new
+       
   end
 
   def new
@@ -25,8 +26,9 @@ class Topics::PostsController < ApplicationController
   end
 
   def create
+    
     @topic = Topic.find(params[:topic_id])
-    @post = Post.new(params.require(:post).permit(:title, :id, :post_id, :image, :content))
+    @post = current_user.posts.build(params.require(:post).permit(:title, :id, :post_id, :image, :content))
     @post.topic = @topic
     
     if @post.save
@@ -43,7 +45,7 @@ class Topics::PostsController < ApplicationController
    
     if @post.update(params.require(:post).permit(:title, :content))
       flash[:notice] = "Post was updated."
-      redirect_to topic_path
+      redirect_to topic_post_path
     else
       flash[:error] = "There was an error saving the post. Please try again."
       render :new
@@ -51,6 +53,7 @@ class Topics::PostsController < ApplicationController
   end
 
 def destroy
+    @post = Post.find(params[:id])
     @post.destroy
     respond_to do |format|
       format.html { redirect_to topics_url, notice: 'Post or comment was successfully destroyed.' }

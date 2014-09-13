@@ -6,6 +6,8 @@
 
 <section>
   <%= render 'shared/stats' %>
+  <%= pluralize(@user.posts.count, 'post') %>,
+  <%= pluralize(@user.comments.count, 'comment') %>
 </section>
 
   <div class="span8">

@@ -15,12 +15,13 @@
       <h4 class="media-heading">
        <%= link_to post.title, [@topic, post] %>
      </h4>
-    
+     
     </div> 
   </div>
 <% end %>
 <br>
 
-<%= link_to 'New Post', new_topic_post_path(@topic, @post) %> 
-      
+<%= link_to 'New Post', new_topic_post_path(@topic, @post), class: 'btn btn-success' 'alert alert-success' %> 
+    
 
+     

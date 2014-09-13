@@ -1,5 +1,6 @@
-
-<h1>HRkin Topics</h1>
+<div class="page-header">
+  <center><strong><h1> HRKin Topics </h1></strong></center>
+</div>
 
 <% @topics.each do |topic| %>
   <div class="media">
@@ -14,8 +15,10 @@
       <%= link_to 'Edit', edit_topic_path(topic) %>
       <%= link_to 'Destroy', topic, method: :delete, data: { confirm: 'Are you sure?' } %>
     </div>
+     <%= will_paginate @topics %>
   </div>
+  <hr>
 <% end %>
 <br>
 <br>
- <%= link_to 'New Topic', new_topic_path, class: "alert alert-success"  %>
+ <%= link_to 'New Topic', new_topic_path, class: 'btn btn-success' 'alert alert-success'  %>

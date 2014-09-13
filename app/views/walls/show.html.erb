@@ -1,0 +1,19 @@
+<div class="page-header">
+  <center><strong><h1> Friends Page </h1></strong></center>
+</div>
+<div>
+<% @posts.each do |post| %>
+  <div class="media">
+        <h2>  <%= link_to post.title %>
+      </h2>
+      <h5>
+        <%= post.content %>
+      
+      </h5>
+      <small>
+          submitted on <%= time_ago_in_words(post.created_at) %> ago 
+      </small>
+  </div>
+  <hr>
+<% end %>
+</div>
