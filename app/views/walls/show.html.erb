@@ -2,18 +2,14 @@
   <center><strong><h1> Friends Page </h1></strong></center>
 </div>
 <div>
-<% @posts.each do |post| %>
-  <div class="media">
-        <h2>  <%= link_to post.title %>
-      </h2>
-      <h5>
-        <%= post.content %>
-      
-      </h5>
-      <small>
-          submitted on <%= time_ago_in_words(post.created_at) %> ago 
-      </small>
-  </div>
-  <hr>
-<% end %>
+  <% @posts.each do |post| %>
+    <div class="media">
+        <h2>  <%= link_to post.title %> </h2>
+        <h5> <%= post.content %> </h5>
+    </div>
+    <small><%= User.find(post.user_id).username %>
+     submitted this post <%= time_ago_in_words(post.created_at) %> ago. <h5><%= post.points %> <strong>point(s)</strong></h5>
+    </small>
+    <hr>
+  <% end %> 
 </div>
