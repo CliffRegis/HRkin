@@ -1,5 +1,50 @@
-@import "bootstrap"
+ @import "bootstrap";
+/* sidebar */
 
+.stats {
+  overflow: auto;
+  a {
+    float: left;
+    padding: 0 10px;
+    border-left: 1px solid $grayLighter;
+    color: gray;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+      color: $blue;
+    }
+  }
+  strong {
+    display: block;
+  }
+}
+
+.user_avatars {
+  overflow: auto;
+  margin-top: 10px;
+  .gravatar {
+    margin: 1px 1px;
+  }
+}
+.vote-arrows { width: 40px; 
+text-align: center;
+}
+.user-info {
+   margin-top: 9px;
+ }
+ 
+ .nav {
+   margin-top: 5px;
+ }
+
+ .favorite {
+ margin-top: 20px;
+ }
+
+ 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.

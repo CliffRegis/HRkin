@@ -1,0 +1,29 @@
+<h3>User details</h3>
+
+<h4><%= @user.username %>
+<br>
+<%= @user.email %></h4>
+
+<section>
+  <%= render 'shared/stats' %>
+</section>
+
+  <div class="span8">
+
+<%# render 'follow_form' if signed_in? %>
+
+<% if current_user.friends_with?(@user) %>
+  <%= form_tag user_friendship_path(current_user, @user.id), method: 'delete' do %>
+    <%= hidden_field_tag :old_friend_id, @user.id %>
+    <%= submit_tag 'Remove friend' %>
+  <% end %>
+<% elsif current_user != @user %>
+  <%= form_tag user_friendships_path(current_user) do %>
+    <%= hidden_field_tag :new_friend_id, @user.id %>
+    <%= submit_tag 'Add friend' %>
+  <% end %>
+<% end %>
+<h3> Comments: </h3>
+ <div>
+  <%= render @user.comments %>
+ </div>
