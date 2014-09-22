@@ -2,15 +2,15 @@ class Topics::PostsController < ApplicationController
  
   
   def index
-    @posts = Post.all
+     @posts = Post.all
   end
 
   def show
+    
     @topic = Topic.find(params[:topic_id])
     @post = Post.find(params[:id])
     @comments = @post.comments
-    @comment = Comment.new
-       
+    @comment = Comment.new   
   end
 
   def new
@@ -28,7 +28,7 @@ class Topics::PostsController < ApplicationController
   def create
     
     @topic = Topic.find(params[:topic_id])
-    @post = current_user.posts.build(params.require(:post).permit(:title, :id, :post_id, :image, :content))
+    @post = current_user.posts.build(params.require(:post).permit(:title, :id, :post_id, :image, :kind, :content))
     @post.topic = @topic
     
     if @post.save
@@ -43,7 +43,7 @@ class Topics::PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
    
-    if @post.update(params.require(:post).permit(:title, :content))
+    if @post.update(params.require(:post).permit(:title, :kind, :content))
       flash[:notice] = "Post was updated."
       redirect_to topic_post_path
     else

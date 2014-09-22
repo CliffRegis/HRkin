@@ -5,9 +5,8 @@ class WallsController < ApplicationController
    
    @friends = current_user.followings
    @posts = Post.reverse_relationships current_user.followers
-  
-end
 
+ end
 
 end
 

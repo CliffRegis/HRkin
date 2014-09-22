@@ -5,9 +5,18 @@ class Post < ActiveRecord::Base
    scope :reverse_relationships, ->(followers) { where user_id: followers }
     belongs_to :topic
 
-   def up_votes
-     votes.where(value: 1).count
-   end
+  searchable do
+    text :title, :boost => 5
+    text :content
+    text :comments do
+      comments.map(&:content)
+    end 
+   
+  end
+
+  def up_votes
+    votes.where(value: 1).count
+  end
 
    def down_votes
      votes.where(value: -1).count
@@ -17,12 +26,7 @@ class Post < ActiveRecord::Base
      self.votes.sum(:value).to_i
    end
 
-   def update_rank
-    age = (created_at - Time.new(1970,1,1)) / (60 * 60 *24)
-    new_rank = points + age
-
-    update_attribute(:rank, new_rank)
-   end
+   
 
 
   default_scope { order('created_at DESC') }

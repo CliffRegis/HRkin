@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @posts = @user.posts
     @comments = @user.comments
-  
+    @friends_post = @posts
   end
 
   def following

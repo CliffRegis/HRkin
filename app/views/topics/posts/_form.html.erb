@@ -18,6 +18,10 @@
     <%= f.label :content %>
     <%= f.text_area :content, rows: 8, class: 'form-control', placeholder: "Enter post content" %>
   <% end %>
+   <div class="form-group">
+    <%= f.label :kind %><br>
+    <%= f.select :kind, ["text", "image"], {},class:  'form-control' %>
+  </div>
   <br>
   <div class="form-group">
     <%= f.submit "Save", class: 'btn btn-success' %>
