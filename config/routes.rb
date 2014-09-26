@@ -36,6 +36,10 @@ Rails.application.routes.draw do
   resources :comments
   
   get 'about' => 'welcome#about'
+
+  authenticated :user do
+    root 'topics#index', as: 'authenticated_root'
+  end
  
   root to: 'welcome#index'
   
