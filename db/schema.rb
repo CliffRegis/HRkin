@@ -15,14 +15,9 @@ ActiveRecord::Schema.define(version: 20140906154650) do
 
   create_table "comments", force: true do |t|
     t.text     "content"
-    t.integer  "user_id"
-    t.integer  "post_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "comments", ["post_id"], name: "index_comments_on_post_id"
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "friendships", force: true do |t|
     t.integer  "popular_model_id"
@@ -56,9 +51,12 @@ ActiveRecord::Schema.define(version: 20140906154650) do
     t.datetime "updated_at"
   end
 
+  add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id"
+  add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
+  add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id"
+
   create_table "topics", force: true do |t|
     t.string   "title"
-    t.boolean  "public",     default: true
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
