@@ -11,13 +11,14 @@ helper_method :sort_column, :sort_direction
   end
 
   def show
-    @search = Post.search do 
-      fulltext params[:search]
-     end
-    @posts = @search.results
-
     @topic = Topic.find(params[:id])
-    @topics = Topic.order(sort_column + " " + sort_direction)
+    @posts = @topic.posts
+    if query = params[:search]
+      @search = @posts.search do 
+        fulltext(query)
+      end
+      @posts = @search.results
+    end
   end
 
   def edit

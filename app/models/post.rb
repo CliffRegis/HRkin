@@ -2,17 +2,17 @@ class Post < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   has_many :votes, dependent: :destroy
   belongs_to :user
-   scope :reverse_relationships, ->(followers) { where user_id: followers }
-    belongs_to :topic
+  scope :reverse_relationships, ->(followers) { where user_id: followers }
+  belongs_to :topic
 
-  searchable do
-    text :title, :boost => 5
-    text :content
-    text :comments do
-      comments.map(&:content)
-    end 
+  # searchable do
+  #   text :title, :boost => 5
+  #   text :content
+  #   text :comments do
+  #     comments.map(&:content)
+  #   end 
    
-  end
+  # end
 
   def up_votes
     votes.where(value: 1).count

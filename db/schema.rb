@@ -11,13 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140920174935) do
+ActiveRecord::Schema.define(version: 20140926182611) do
 
   create_table "comments", force: true do |t|
     t.text     "content"
+    t.integer  "user_id"
+    t.integer  "post_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "comments", ["post_id"], name: "index_comments_on_post_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "friendships", force: true do |t|
     t.integer  "popular_model_id"
@@ -36,17 +41,14 @@ ActiveRecord::Schema.define(version: 20140920174935) do
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
     t.integer  "topic_id"
     t.float    "rank"
-    t.string   "username"
     t.string   "kind"
     t.float    "point"
-   end
+    t.integer  "user_id"
+  end
 
   add_index "posts", ["topic_id"], name: "index_posts_on_topic_id"
-  add_index "posts", ["user_id"], name: "index_posts_on_user_id"
-  add_index "posts", ["username"], name: "index_posts_on_username"
 
   create_table "relationships", force: true do |t|
     t.integer  "follower_id"
@@ -61,6 +63,7 @@ ActiveRecord::Schema.define(version: 20140920174935) do
 
   create_table "topics", force: true do |t|
     t.string   "title"
+    t.boolean  "public",     default: true
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
