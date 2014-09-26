@@ -7,20 +7,31 @@
 <%= link_to 'Edit Topic', edit_topic_path(@topic) %> |
 <%= link_to 'Back', topics_path %>
 
-
-<div> <h2> Posts </h2>
-<% @posts.each do |post| %>
-  <div class="media">
-    <div class="media-body">
-      <h4 class="media-heading">
-       <%= link_to post.title, [@topic, post] %>
-     </h4>
-    
-    </div> 
-  </div>
+<h2> Posts </h2>
+<%= form_tag topic_path(@topic, @posts), :method => :get do %>
+<p>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "search", :title => nil %>
+</p>
 <% end %>
+
+<table class="table" style="width:100%" >
+  <tr>
+    <th><%= sortable 'Title' %></th>
+    <th><%= sortable'Points' %></th>
+    <th><%= sortable 'Date' %></th>
+  </tr>
+   <% @posts.each do |post| %>
+  <tr>
+    <td><%= link_to post.title, [@topic, post] %></td>
+    <td><%=pluralize(post.points, 'point') %></td> 
+    <td><%=post.created_at.to_formatted_s(:short) %></td> 
+  </tr>
+  <% end %>
+</table>
 <br>
 
-<%= link_to 'New Post', new_topic_post_path(@topic, @post) %> 
-      
+<%= link_to 'New Post', new_topic_post_path(@topic, @post), class: 'btn btn-success' 'alert alert-success' %> 
+    
 
+     

@@ -1,5 +1,18 @@
 
 <%= render partial: 'post', locals: {post: @post, comment: @comment} %>
+<%= render :partial => "/votes/vote", locals: {post: @post, vote: @vote } %>
+
+
+   <div>
+      <h3> <%=pluralize(@post.points, 'point') %> </h3>
+      <small>
+        <%= pluralize(@post.up_votes, 'up vote') %>,
+        <%= pluralize(@post.down_votes, 'down vote') %>,
+          <div class='js-comments-count'>
+          <%= pluralize(@comments.count,'comment') %>
+          </div>
+      </small>
+    </div>
 
 <div class="row">
     <div class="col-md-8">
@@ -30,5 +43,6 @@
 
       <%= link_to "Delete Comment",[@topic, @post], :method => :delete, class: 'btn btn-danger', :confirm => 'are you sure you want to delete' %>
     </div>
-  <div>
-   
+  </div>
+
+  

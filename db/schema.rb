@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140906154650) do
+ActiveRecord::Schema.define(version: 20140920174935) do
 
   create_table "comments", force: true do |t|
     t.text     "content"
@@ -37,12 +37,16 @@ ActiveRecord::Schema.define(version: 20140906154650) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.text     "comments"
     t.integer  "topic_id"
-  end
+    t.float    "rank"
+    t.string   "username"
+    t.string   "kind"
+    t.float    "point"
+   end
 
   add_index "posts", ["topic_id"], name: "index_posts_on_topic_id"
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
+  add_index "posts", ["username"], name: "index_posts_on_username"
 
   create_table "relationships", force: true do |t|
     t.integer  "follower_id"
@@ -85,5 +89,14 @@ ActiveRecord::Schema.define(version: 20140906154650) do
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "votes", force: true do |t|
+    t.integer "user_id"
+    t.integer "post_id"
+    t.integer "value"
+  end
+
+  add_index "votes", ["post_id"], name: "index_votes_on_post_id"
+  add_index "votes", ["user_id"], name: "index_votes_on_user_id"
 
 end

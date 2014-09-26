@@ -1,0 +1,27 @@
+<div class="page-header">
+  <center><strong><h1> Friends Page </h1></strong></center>
+</div>
+<div>
+  <% @posts.each do |post| %>
+    <div class="media">
+    <h2> <%= link_to post.title,[post.topic, post] %>
+    </h2>
+
+        <h5> <%= post.content %> </h5>
+    </div>
+     
+    <small><%= User.find(post.user_id).username %>
+     submitted this post <%= time_ago_in_words(post.created_at) %> ago. <h5><%= post.points %> <strong>point(s)</strong></h5>
+    </small>
+    <% end %> 
+</div>
+
+
+<%#topic_post_path(@post, @wall, @topic, post.id) %> 
+
+    <h2> <%#= link_to post.title, topic_post_path(@post_id), :method => :get %>
+    </h2>
+
+    <%#= link_to post.title, post %>
+
+    <%#= link_to post.title, user_post_path(@post, @wall, @topic, post.id) method: :get%>

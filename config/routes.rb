@@ -1,33 +1,44 @@
 Rails.application.routes.draw do
-
-   devise_for :users
-
-resources :users, only: [:update, :show, :index] do
+  
+  devise_for :users
+  
+  resources :users, only: [:update, :show, :index] do
     resources :friendships, only: [:create, :destroy]
-   end
+    resource :wall
+  end
 
-    resources :users do
+   resources :users do
      member do
       get :following, :followers
      end
-    end
-
-    resources :topics do
-     resources :posts, except: [:index], controller: 'topics/posts'
    end
 
-  resources :posts, only: [:index] do
-    resources :comments, only: [:create, :destroy]
-   end
-  
-  resources :relationships, only: [:create, :destroy]
-  
-   get 'about' => 'welcome#about'
-
-  authenticated :user do
-    root to: 'topics#index', as: 'authenticated_root'
+   resource :wall do
+    resource :topics
+    resources :posts
   end
   
-   root to: 'welcome#index'
+  resources :topics do
+    resources :posts, except: [:index], controller: 'topics/posts'
+    resource :wall
+  end
+  
+  resources :posts, only: [:index] do
+    resources :comments, only: [:create, :destroy]
+    resource :wall
+  post '/up-vote' => 'votes#up_vote', as: :up_vote
+  post '/down-vote' => 'votes#down_vote', as: :down_vote
+  end
 
- end
+  
+  resources :relationships, only: [:create, :destroy]
+  resources :votes, only: [:create]
+  resources :comments
+  
+  get 'about' => 'welcome#about'
+ 
+  root to: 'welcome#index'
+  
+end
+
+

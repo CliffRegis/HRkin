@@ -9,8 +9,11 @@
           </h4>
         </div>
       </div>  
+      <% if post.kind == 'image' %>
+        <%= image_tag post.content, style: "width: 100%" %> 
+      <% else %>
       <%= @post.content %> 
-        
+        <% end %>
         <br>  
       <%= link_to 'Edit Post', edit_topic_post_path(@topic, @post), class: 'btn btn-success'  %>
       <%= link_to "Delete Post",[@topic, @post], :method => :delete, class: 'btn btn-danger', :confirm => 'are you sure you want to delete' %> 

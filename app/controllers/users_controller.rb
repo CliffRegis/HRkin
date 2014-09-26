@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
   
   def index
-     @users = User.all
+     @title = "All users"
+     @users = User.paginate(:page => params[:page])
+    
   end
 
   def update
@@ -17,8 +19,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @posts = @user.posts
     @comments = @user.comments
+    @friends_post = @posts
   end
-def following
+
+  def following
     @title = "Following"
     @user = User.find(params[:id])
     @users = @user.followed_users.paginate(page: params[:page])

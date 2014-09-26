@@ -1,31 +1,33 @@
 class TopicsController < ApplicationController
+helper_method :sort_column, :sort_direction
+
   def index
-    @topic = Topic.new
-    @topics = Topic.paginate(page: params[:page], per_page: 10)
-    
+   @topic = Topic.new
+   @topics = Topic.paginate(page: params[:page], per_page: 10)
   end
 
   def new
     @topic = Topic.new
-    
   end
 
   def show
+    @search = Post.search do 
+      fulltext params[:search]
+     end
+    @posts = @search.results
+
     @topic = Topic.find(params[:id])
-    @posts = @topic.posts.paginate(page: params[:page], per_page: 10)
-   
+    @topics = Topic.order(sort_column + " " + sort_direction)
   end
 
   def edit
     @topic = Topic.find(params[:id])
-    
   end
 
   def destroy
     @topic = Topic.find(params[:id])
     title = @topic.title
     
-
     if @topic.destroy
       flash[:notice] = "\"#{title}\" was deleted."
       redirect_to topics_path
@@ -59,7 +61,18 @@ class TopicsController < ApplicationController
 
   private
 
-  def topic_params
-    params.require(:topic).permit(:title, :topic_id, :id, :content)
-  end
+    def topic_params
+      params.require(:topic).permit(:title, :topic_id, :id, :content)
+    end
+
+    def sort_column
+      Topic.column_names.include?(params[:sort]) ? params[:sort] : "name"
+    end
+    
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+    end
+
+  
+
 end

@@ -1,11 +1,14 @@
+<div class="page-header">
+  <center><strong><h1> HRkin Users </h1></strong></center>
+</div>
+
  <div class="row">
    <div class="col-md-8">
-     <h1>Popular Users</h1>
-     <p class="lead">Most active users NOT DONE</p>
+     
   <%= render partial: 'users/user', collection: @users %>
      
    </div>
    <div class="col-md-4">
+    <%= will_paginate @users %>
    </div>
  </div>
-  
