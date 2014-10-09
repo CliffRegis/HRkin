@@ -2,12 +2,6 @@
   <center><strong><h1> HRKin Topics </h1></strong></center>
 </div>
 
-<%= form_tag topics_path(@topic, @posts), :method => :get do %>
-<p>
-  <%= text_field_tag :search, params[:search] %>
-  <%= submit_tag "search", :title => nil %>
-</p>
-<% end %>
 
 <% @topics.each do |topic| %>
   <div class="media">

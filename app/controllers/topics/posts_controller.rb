@@ -10,7 +10,8 @@ class Topics::PostsController < ApplicationController
     @topic = Topic.find(params[:topic_id])
     @post = Post.find(params[:id])
     @comments = @post.comments
-    @comment = Comment.new   
+    @comment = Comment.new  
+
   end
 
   def new

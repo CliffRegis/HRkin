@@ -12,4 +12,4 @@ class PostsController < ApplicationController
    @name = @post.username
  end
   
- end
+end

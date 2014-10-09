@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140920174935) do
+ActiveRecord::Schema.define(version: 20141009181614) do
 
   create_table "comments", force: true do |t|
     t.text     "content"
@@ -36,6 +36,15 @@ ActiveRecord::Schema.define(version: 20140920174935) do
   add_index "friendships", ["friend_id", "friend_type"], name: "index_friendships_on_friend_id_and_friend_type"
   add_index "friendships", ["popular_model_id", "popular_model_type"], name: "index_friendships_on_popular_model_id_and_popular_model_type"
 
+  create_table "pages", force: true do |t|
+    t.string   "name"
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
   create_table "posts", force: true do |t|
     t.string   "title"
     t.text     "content"
@@ -44,18 +53,23 @@ ActiveRecord::Schema.define(version: 20140920174935) do
     t.integer  "user_id"
     t.integer  "topic_id"
     t.float    "rank"
-    t.string   "username"
     t.string   "kind"
     t.float    "point"
-   end
+  end
 
   add_index "posts", ["topic_id"], name: "index_posts_on_topic_id"
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
-  add_index "posts", ["username"], name: "index_posts_on_username"
 
   create_table "relationships", force: true do |t|
     t.integer  "follower_id"
     t.integer  "followed_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "todoos", force: true do |t|
+    t.string   "name"
+    t.boolean  "done"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

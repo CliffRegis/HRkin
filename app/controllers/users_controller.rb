@@ -18,6 +18,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = @user.posts
+    @pages = @user.pages
     @comments = @user.comments
     @friends_post = @posts
   end

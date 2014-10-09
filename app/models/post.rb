@@ -2,16 +2,19 @@ class Post < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   has_many :votes, dependent: :destroy
   belongs_to :user
-   scope :reverse_relationships, ->(followers) { where user_id: followers }
-    belongs_to :topic
+  scope :reverse_relationships, ->(followers) { where user_id: followers }
+  belongs_to :topic
 
   searchable do
+
     text :title, :boost => 5
     text :content
     text :comments do
       comments.map(&:content)
     end 
-   
+    integer :topic_id do
+      topic.id 
+    end
   end
 
   def up_votes
@@ -26,7 +29,12 @@ class Post < ActiveRecord::Base
      self.votes.sum(:value).to_i
    end
 
-   
+   def update_rank
+    age = (created_at - Time.new(1970,1,1)) / (60 * 60 *24)
+    new_rank = points + age
+
+    update_attribute(:rank, new_rank)
+   end
 
 
   default_scope { order('created_at DESC') }
@@ -42,4 +50,3 @@ private
   def create_vote
     user.votes.create(value: 1, post:self)
   end
-  

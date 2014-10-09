@@ -1,0 +1,11 @@
+<h1> Add new item to your todo list </h1>
+
+<%= form_for @todo, url: {action: "create"} do |f| %>
+  
+   <div class="field">
+    <%= f.label :name %> <br>
+    <%= f.text_field :name, placeholder: "short description of task" %>
+    <%= f.hidden_field :done, :value => false %>
+    <%= f.submit "Add to todoo list" %>
+   </div>
+<% end %>
