@@ -25,6 +25,9 @@
 stripe.rb
 
 config/initializers/stripe.rb
+config/database.yml
+config/secrets.yml
+config/sunspot.yml
 
 # wiki.git
 /wiki.git
