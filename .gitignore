@@ -18,8 +18,13 @@
 # solr
 /solr
 
+#config file
+/config/application.yml
+
 # stripe.rb
-/stripe.rb
+stripe.rb
+
+config/initializers/stripe.rb
 
 # wiki.git
 /wiki.git
