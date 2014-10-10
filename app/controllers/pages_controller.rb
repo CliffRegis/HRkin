@@ -6,7 +6,7 @@ class PagesController < ApplicationController
   # before_filter :find_page, :except => [:new, :show, :create]
   # before_filter :find_body, :only => [:edit]
   def index
-   @pages = Page.all.paginate(page: params[:page], per_page: 10)
+   @pages = current_user.pages.order_by_created_at.paginate(page: params[:page], per_page: 10)
   end
   
   def show

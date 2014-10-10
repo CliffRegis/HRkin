@@ -1,6 +1,8 @@
 class Page < ActiveRecord::Base
   belongs_to :user
 
+  scope :order_by_created_at, -> { order('created_at DESC') }
+
   # after_create  :create_page
   # after_update  :update_page
   # after_destroy :delete_page
