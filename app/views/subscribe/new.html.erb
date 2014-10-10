@@ -1,0 +1,17 @@
+<%= form_tag subscribe_path(1), :method => :put do %>
+  <article>
+    <label class ="amount">
+      <span>Amount: $4.99</span>
+    </label>
+  </article>
+  
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="pk_test_1L5tt2ev424P7ZCRnXfT6fAG"
+    data-image="/square-image.png"
+    data-name="Demo Site"
+    data-description="Pro plan($4.99)"
+    data-amount="499">
+    </script>
+
+<% end %>
+

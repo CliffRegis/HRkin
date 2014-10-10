@@ -36,6 +36,7 @@ Rails.application.routes.draw do
   end
 
   resources :todoos
+  resources :subscribe
   resources :relationships, only: [:create, :destroy]
   resources :votes, only: [:create]
   resources :comments

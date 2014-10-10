@@ -1,6 +1,10 @@
 class TodoosController < ApplicationController
+before_filter :authenticate_user!
 
   def index
+    if !current_user.subscribed
+        redirect_to new_subscribe_path, :notice => "to view the Todoo you must subscribe"
+    end
     @todos = Todoo.where(done: false)
     @todone = Todoo.where(done: true)
   end

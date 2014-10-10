@@ -18,5 +18,8 @@
 # solr
 /solr
 
+# stripe.rb
+/stripe.rb
+
 # wiki.git
 /wiki.git
