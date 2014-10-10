@@ -24,11 +24,11 @@ class PagesController < ApplicationController
 
   def create
     @user = User.find(params[:user_id])
-    @page = Page.build(params[:page])
+    @page = @user.pages.build(page_params)
 
     if @page.save
       flash[:notice] = "Successfully created page."
-      redirect_to @page
+      redirect_to [current_user, @page]
     else
       render :action => 'new'
     end
@@ -53,13 +53,10 @@ class PagesController < ApplicationController
   end
 
   
-  # private
+  private
+
+  def page_params
+    params.require(:page).permit(:name, :title, :content, :user)
+  end
   
-  # def find_page
-  #   @page = Page.find(params[:id])
-  # end
-  
-  # def find_body
-  #   @page.body = params[:page][:body] rescue @page.raw_content
-  # end
 end

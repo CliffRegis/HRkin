@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   end
   
 
-   resource :wall do
+  resource :wall do
     resource :topics
     resources :posts
   end
