@@ -13,6 +13,11 @@ class User < ActiveRecord::Base
                                    class_name:  "Relationship",
                                    dependent:   :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
+
+  def handle
+    username || email
+  end
+  
   
   def following?(other_user)
     self.relationships.find_by(followed_id: other_user.id)
