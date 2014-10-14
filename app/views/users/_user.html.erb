@@ -1,7 +1,7 @@
 <div class="media">
     <div class="media-body">
      <h4 class="media-heading">
-      <%= link_to user.username, user %>
+      <%= link_to user.handle, user %>
      </h4>
      <%= pluralize(user.posts.count, 'post') %>,
      <%= pluralize(user.comments.count, 'comment') %>

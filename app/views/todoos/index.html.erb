@@ -7,7 +7,7 @@
 <% @todos.each do |t| %>
   <p>
     <strong> <%= t.name %> </strong>
-    <small><%=time_ago_in_words(t.countdown) %></small>
+    <small><%= t.countdown %> days</small>
     <small> <%= link_to 'Mark as Done', todoo_path(t), 
     :method => :put %> </small>
   </p>

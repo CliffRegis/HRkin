@@ -6,7 +6,7 @@ class PagesController < ApplicationController
   # before_filter :find_page, :except => [:new, :show, :create]
   # before_filter :find_body, :only => [:edit]
   def index
-   @pages = Page.all.paginate(page: params[:page], per_page: 10)
+   @pages = current_user.pages.order_by_created_at.paginate(page: params[:page], per_page: 10)
   end
   
   def show
@@ -24,11 +24,11 @@ class PagesController < ApplicationController
 
   def create
     @user = User.find(params[:user_id])
-    @page = Page.build(params[:page])
+    @page = @user.pages.build(page_params)
 
     if @page.save
       flash[:notice] = "Successfully created page."
-      redirect_to @page
+      redirect_to [current_user, @page]
     else
       render :action => 'new'
     end
@@ -53,13 +53,10 @@ class PagesController < ApplicationController
   end
 
   
-  # private
+  private
+
+  def page_params
+    params.require(:page).permit(:name, :title, :content, :user)
+  end
   
-  # def find_page
-  #   @page = Page.find(params[:id])
-  # end
-  
-  # def find_body
-  #   @page.body = params[:page][:body] rescue @page.raw_content
-  # end
 end
