@@ -4,7 +4,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
   has_many :posts, dependent: :destroy
-  has_many :pages
   has_many :comments, dependent: :destroy
   has_many :votes, dependent: :destroy
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
@@ -13,6 +12,8 @@ class User < ActiveRecord::Base
                                    class_name:  "Relationship",
                                    dependent:   :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
+  has_many :collaborators
+  has_many :pages, through: :collaborators
 
   def handle
     username || email
