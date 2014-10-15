@@ -10,5 +10,3 @@ class WallsController < ApplicationController
 
 end
 
-#/posts/:post_id
-#/users/:user_id/

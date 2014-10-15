@@ -21,11 +21,12 @@ gem 'gollum'
 gem 'whenever', :require => false
 gem 'asciidoctor'
 gem 'github-markdown'
+gem 'devise'
 gem 'progress_bar'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
-gem 'devise'
+
 
 group :development, :test do
   gem 'quiet_assets'

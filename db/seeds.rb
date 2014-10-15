@@ -22,7 +22,7 @@ users = User.all
 
  15.times do
    Topic.create!(
-     title:         Faker::Lorem.sentence,
+     title:    Faker::Lorem.sentence,
      content:  Faker::Lorem.paragraph
    )
  end
