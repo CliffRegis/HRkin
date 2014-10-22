@@ -15,6 +15,7 @@ Rails.application.routes.draw do
    
   resources :users do
     resources :pages
+    resources :collaborators
   end
   
 
