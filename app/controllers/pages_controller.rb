@@ -9,6 +9,7 @@ class PagesController < ApplicationController
   def index
     #if user_signed_in? 
     if current_user.present?
+      @user = User.find(params[:user_id])
       @pages = current_user.pages.order_by_created_at.paginate(page: params[:page], per_page: 10)
     else
       print "Not working"
@@ -18,7 +19,9 @@ class PagesController < ApplicationController
   
   def show
     if current_user.present? 
-   @page = Page.find(params[:id])
+     @users = User.paginate(page: params[:page], per_page: 4) 
+     @user = User.find(params[:user_id]) 
+     @page = Page.find(params[:id])
   end
 end
 
@@ -28,6 +31,7 @@ end
   end
 
   def edit
+    @user = User.find(params[:user_id])
     @page = Page.find(params[:id])
   end
 
@@ -43,9 +47,11 @@ def create
 end
 
   def update
-    if @page.update_attributes(params[:page])
+    @page = Page.find(params[:id])
+
+    if @page.update_attributes(params.require(:page).permit(:title, :name, :content))
       flash[:notice] = "Successfully updated page."
-      redirect_to @page
+      redirect_to user_pages_path
     else
       render :action => 'edit'
     end

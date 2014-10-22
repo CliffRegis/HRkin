@@ -1,4 +1,28 @@
 <h1><%= @page.title %></h1>
 <p><%= @page.content %></p>
- 
-<%= link_to 'Wiki page', user_pages_path(@page), class: 'btn btn-success' 'alert alert-success'  %>  
+
+
+<%= will_paginate @users %>
+<table class="table" style="width:100%" >
+  <tr>
+    <th><%= 'Name' %></th>
+    <th><%= 'Email' %></th> 
+    <th><%= 'Access' %></th>
+  </tr>
+   <% @users.each do |user| %>
+  <tr>
+    <td><%= link_to user.username,(user) %></td>
+    <td><%= user.email %></td> 
+    <td>         
+    <%= check_box_tag(:user_id) %>
+    <%= label_tag(:user_id, "Add as Collaborator") %>
+    </td> 
+  </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Wiki page', user_pages_path, class: 'btn btn-success' 'alert alert-success'  %>  
+<%= link_to 'Edit Wiki', edit_user_page_path(@user, @page), class: 'btn btn-success' 'alert alert-success' %> 
+<%= submit_tag "Save Collo", data: { confirm: "Are you sure?" }, class: 'btn btn-success' 'alert alert-success' %>
+  
+

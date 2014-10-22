@@ -1,4 +1,11 @@
-<h1>collaborators</h1>
+<div class="page-header">
+  <center><strong><h1> Collaborators</h1></strong></center>
+</div>
+<% @collaborators.each do |c| %>
+<%= c.user_id %>
+<hr>
+<% end %>
 
 
-  
+<h2>Add collaborators to project</h2>
+
