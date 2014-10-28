@@ -62,7 +62,13 @@ comments = Comment.all
   followers.each      { |follower| follower.follow!(user) }
 end
 
-
+# Following relationships
+# users = User.all
+# user  = users.first
+# supporting = users[2..50]
+# supporters = users[3..40]
+# supporting.each { |supported| user.support(supported) }
+# supporters.each { |supporter| supporter.support(user) }
 
 
  admin = User.new(

@@ -13,7 +13,15 @@ class User < ActiveRecord::Base
                                    dependent:   :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
   has_many :collaborators
-  has_many :pages, through: :collaborators
+  has_many :pages, dependent: :destroy
+  has_many :active_collaborations, class_name: "Collaboration",
+                                    foreign_key: "supporter_id",
+                                    dependent: :destroy
+  has_many :passive_collaborations, class_name: "Collaboration",
+                                    foreign_key: "supported_id",
+                                    dependent: :destroy                                 
+  has_many :supporting, through: :active_collaborations, source: :supported
+  has_many :supporters, through: :passive_collaborations, source: :supporter
 
   def handle
     username || email
@@ -31,6 +39,22 @@ class User < ActiveRecord::Base
   def unfollow!(other_user)
     relationships.find_by(followed_id: other_user.id).destroy
   end
+
+
+  def supporting?(other_user)
+    supporting.include?(other_user)
+  end
+
+  def support!(other_user)
+    active_collaborations.create!(supported_id: other_user.id)
+  end
+
+  def unsupport!(other_user)
+    active_collaborations.find_by(supported_id: other_user.id).destroy
+  end
+
+
+  
 
   popular 
 end

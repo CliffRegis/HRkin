@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   def index
      @title = "All users"
      @users = User.paginate(:page => params[:page])
-     @collaborators = Collaborator.all
+     
   end
 
   def update
@@ -43,4 +43,3 @@ class UsersController < ApplicationController
     params.require(:user).permit(:username, :avatar, :email_favorites)
   end
 end
-  

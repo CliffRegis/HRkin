@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141015210542) do
+ActiveRecord::Schema.define(version: 20141024212128) do
+
+  create_table "collaborations", force: true do |t|
+    t.integer  "supported_id"
+    t.integer  "supporter_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "collaborations", ["supported_id", "supporter_id"], name: "index_collaborations_on_supported_id_and_supporter_id", unique: false
+  add_index "collaborations", ["supported_id"], name: "index_collaborations_on_supported_id"
+  add_index "collaborations", ["supporter_id"], name: "index_collaborations_on_supporter_id"
 
   create_table "collaborators", force: true do |t|
     t.integer  "page_id"

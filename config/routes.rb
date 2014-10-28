@@ -15,9 +15,16 @@ Rails.application.routes.draw do
    
   resources :users do
     resources :pages
-    resources :collaborators
+    resources :collaborations
   end
   
+  resources :users do
+    member do
+      get :supporting, :supporters
+    end
+  end
+ 
+  resources :collaborations, only: [:create, :destroy]
 
   resource :wall do
     resource :topics

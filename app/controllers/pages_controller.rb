@@ -1,11 +1,6 @@
 class PagesController < ApplicationController
   before_filter :authenticate_user!
- 
-
-   #layout :get_layout
-  
-  # before_filter :find_page, :except => [:new, :show, :create]
-  # before_filter :find_body, :only => [:edit]
+   
   def index
     #if user_signed_in? 
     if current_user.present?
@@ -22,8 +17,8 @@ class PagesController < ApplicationController
      @users = User.paginate(page: params[:page], per_page: 4) 
      @user = User.find(params[:user_id]) 
      @page = Page.find(params[:id])
+    end
   end
-end
 
   def new
     @user = User.find(params[:user_id])
@@ -35,16 +30,16 @@ end
     @page = Page.find(params[:id])
   end
 
-def create
-  @user = User.find(params[:user_id])
-  @user.pages.build(page_params)
-  if @user.save
-    flash[:notice] = "Great! Your new Wiki was made"
-    redirect_to user_pages_path(@user)
-  else
-    render :new
+  def create
+    @user = User.find(params[:user_id])
+    @user.pages.build(page_params)
+    if @user.save
+     flash[:notice] = "Great! Your new Wiki was made"
+     redirect_to user_pages_path(@user)
+    else
+     render :new
+    end
   end
-end
 
   def update
     @page = Page.find(params[:id])
