@@ -1,2 +1,27 @@
 <h1><%= @page.title %></h1>
 <p><%= @page.content %></p>
+
+<h3>Add collaborators</h3>
+
+<%= form_for [current_user, @page] do %>
+  <table class"table">
+    <thead>
+      <tr>
+        <td>Name</td>
+        <td>Email</td>
+        <td>Give Access</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr class="table-striped">
+          <td><%= user.username.present? ? user.username : 'None' %></td>
+          <td><%= user.email %></td>
+          <td><%= check_box_tag :'user_ids[]', user.id %></td>
+        </tr>
+      <% end %>
+        
+      </tr>
+    </tbody>
+  </table>
+<% end %>

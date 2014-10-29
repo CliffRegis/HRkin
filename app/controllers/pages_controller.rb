@@ -11,6 +11,7 @@ class PagesController < ApplicationController
   
   def show
    @page = Page.find(params[:id])
+   @users = User.all
   end
 
   def new

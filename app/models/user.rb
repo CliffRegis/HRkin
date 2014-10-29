@@ -14,6 +14,9 @@ class User < ActiveRecord::Base
                                    dependent:   :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
 
+  has_many :collaborations
+  has_many :collaborating_users, :through :collaborations, class_name: 'User'
+
   def handle
     username || email
   end
