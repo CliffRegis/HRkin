@@ -15,12 +15,12 @@ class User < ActiveRecord::Base
   has_many :followers, through: :reverse_relationships, source: :follower
 
   has_many :collaborations
-  has_many :collaborating_users, :through :collaborations, class_name: 'User'
+  has_many :page_collaborations, through: :collaborations, source: :page
+  
 
   def handle
     username || email
   end
-  
   
   def following?(other_user)
     self.relationships.find_by(followed_id: other_user.id)

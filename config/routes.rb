@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     resources :pages
   end
   
+  resources :pages
 
   resource :wall do
     resource :topics

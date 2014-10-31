@@ -36,7 +36,9 @@ class PagesController < ApplicationController
   end
 
   def update
-    if @page.update_attributes(params[:page])
+    @page = Page.find(params[:id])
+    # binding.pry
+    if @page.update_attributes(page_params)
       flash[:notice] = "Successfully updated page."
       redirect_to @page
     else
@@ -57,7 +59,7 @@ class PagesController < ApplicationController
   private
 
   def page_params
-    params.require(:page).permit(:name, :title, :content, :user)
+    params.require(:page).permit(:name, :title, :content, :user, :user_ids => [])
   end
   
 end

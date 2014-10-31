@@ -4,7 +4,7 @@
 <h3>Add collaborators</h3>
 
 <%= form_for [current_user, @page] do %>
-  <table class"table">
+  <table class="table table-striped">
     <thead>
       <tr>
         <td>Name</td>
@@ -14,14 +14,15 @@
     </thead>
     <tbody>
       <% @users.each do |user| %>
-        <tr class="table-striped">
+        <tr>
           <td><%= user.username.present? ? user.username : 'None' %></td>
           <td><%= user.email %></td>
-          <td><%= check_box_tag :'user_ids[]', user.id %></td>
+          <td><%= check_box_tag :user_ids, user.id, @page.users.include?(user), name: 'page[user_ids][]' %></td>
         </tr>
       <% end %>
         
       </tr>
     </tbody>
   </table>
+  <%= submit_tag %>
 <% end %>
