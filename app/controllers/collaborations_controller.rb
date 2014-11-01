@@ -1,22 +1,31 @@
 class CollaborationsController < ApplicationController
   
   def index
-    @collaborators = Collaborator.all
+    @collaborations = Collaboration.all
   end
 
+  def new
+    @Collaboration = Collaboration.new
+
   def create
-    @user = User.find(params[:supported_id])
-    if current_user.support!(@user)
-     redirect_to @user, notice: 'Supporter added'
+    @page = Page.find(params[:id])
+    @collaboration = Collaboration.new(user_id: params[:user_id], page_id: @page.id)
+    if @collaboration.save
+     redirect_to user_pages_path, notice: 'Supporter added'
     else
      redirect_to :back, alert: 'Supporter not added'
     end 
   end
 
+  def show
+    @collaboration = Collaboration.find(params[:page])
+  end
+
   def destroy
-    @user = Collaboration.find(params[:id]).supported
-    current_user.unsupport!(@user)
-    redirect_to @user
+    @page = Page.find(params[:page_id])
+    @collaboration = Collaboration.find(params[:id])
+    @collaboration.destroy
+    redirect_to user_pages_path
   end
 
 end

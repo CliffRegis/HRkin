@@ -1,23 +1,13 @@
 class PagesController < ApplicationController
-  before_filter :authenticate_user!
+  #before_filter :authenticate_user!
    
-  def index
-    #if user_signed_in? 
-    if current_user.present?
-      @user = User.find(params[:user_id])
-      @pages = current_user.pages.order_by_created_at.paginate(page: params[:page], per_page: 10)
-    else
-      print "Not working"
-    end
+ def index
+   @pages = current_user.pages.order_by_created_at.paginate(page: params[:page], per_page: 10)
   end
-
   
   def show
-    if current_user.present? 
-     @users = User.paginate(page: params[:page], per_page: 4) 
-     @user = User.find(params[:user_id]) 
-     @page = Page.find(params[:id])
-    end
+   @page = Page.find(params[:id])
+   @users = User.all
   end
 
   def new
@@ -32,21 +22,22 @@ class PagesController < ApplicationController
 
   def create
     @user = User.find(params[:user_id])
-    @user.pages.build(page_params)
-    if @user.save
-     flash[:notice] = "Great! Your new Wiki was made"
-     redirect_to user_pages_path(@user)
+    @page = @user.pages.build(page_params)
+
+    if @page.save
+      flash[:notice] = "Successfully created page."
+      redirect_to [current_user, @page]
     else
-     render :new
+      render :action => 'new'
     end
   end
 
   def update
     @page = Page.find(params[:id])
-
-    if @page.update_attributes(params.require(:page).permit(:title, :name, :content))
+    # binding.pry
+    if @page.update_attributes(page_params)
       flash[:notice] = "Successfully updated page."
-      redirect_to user_pages_path
+      redirect_to user_page_path
     else
       render :action => 'edit'
     end
@@ -65,7 +56,7 @@ class PagesController < ApplicationController
   private
 
   def page_params
-    params.require(:page).permit(:name, :title, :content, :user)
+    params.require(:page).permit(:name, :title, :content, :user, :user_ids => [])
   end
   
 end
