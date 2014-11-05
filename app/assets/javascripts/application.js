@@ -14,3 +14,9 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+$ (document).ready(function() {
+  $('#add-collaborators').click(function() {
+      $('.add-collaborators').removeClass ('hidden');
+      return false;
+  });
+});

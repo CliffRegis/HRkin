@@ -1,12 +1,10 @@
 class WallsController < ApplicationController
-   
-  
+     
   def show
-   
-   @friends = current_user.followings
-   @posts = Post.reverse_relationships current_user.followers
-
- end
-
+    @friends = current_user.followings
+    @posts = Post.where(user_id: current_user.friends.pluck(:id))
+  end
 end
+  
+
 

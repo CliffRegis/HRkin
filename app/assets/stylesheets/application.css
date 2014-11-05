@@ -1,5 +1,8 @@
  @import "bootstrap";
 /* sidebar */
+.hidden {
+  display: none;
+}
 
 .stats {
   overflow: auto;

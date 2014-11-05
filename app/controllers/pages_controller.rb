@@ -1,13 +1,14 @@
 class PagesController < ApplicationController
   #before_filter :authenticate_user!
-   
- def index
-   @pages = current_user.pages.order_by_created_at.paginate(page: params[:page], per_page: 10)
+  
+
+  def index
+    @pages = current_user.pages.order_by_created_at.paginate(page: params[:page], per_page: 10)
   end
   
   def show
-   @page = Page.find(params[:id])
-   @users = User.all
+    @page = Page.find(params[:id])
+    @users = User.all
   end
 
   def new
