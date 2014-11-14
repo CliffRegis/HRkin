@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141029174826) do
+ActiveRecord::Schema.define(version: 20141114193742) do
 
   create_table "collaborations", force: true do |t|
     t.integer  "user_id"
@@ -29,8 +29,11 @@ ActiveRecord::Schema.define(version: 20141029174826) do
     t.integer  "post_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "commentable_id"
+    t.integer  "commentable_type"
   end
 
+  add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type"
   add_index "comments", ["post_id"], name: "index_comments_on_post_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
