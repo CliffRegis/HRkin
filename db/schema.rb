@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20141114193742) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "commentable_id"
-    t.integer  "commentable_type"
+    t.string   "commentable_type"
   end
 
   add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type"

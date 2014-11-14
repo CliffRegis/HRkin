@@ -1,5 +1,6 @@
 class Page < ActiveRecord::Base
   belongs_to :user
+  has_many :comments, as: :commentable
 
   scope :order_by_created_at, -> { order('created_at DESC') }
 
