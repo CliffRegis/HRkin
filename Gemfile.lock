@@ -247,7 +247,7 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   spring
   sqlite3
-  stripe
+  stripe!
   sunspot_rails
   sunspot_solr
   turbolinks

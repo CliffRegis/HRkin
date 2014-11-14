@@ -7,7 +7,7 @@
   <div class="media">
     <div class="media-body">
       <h4 class="media-heading">
-        <%= page.title %>
+        <%= link_to page.title, [page.user, page] %>
       </h4>
       <h5 class="media-heading">
         <%= page.content %>

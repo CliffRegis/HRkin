@@ -16,7 +16,7 @@ gem 'faker'
 gem 'sunspot_rails'
 gem 'sunspot_solr'
 gem 'redcarpet'
-gem 'stripe'
+gem 'stripe', :source => 'https://code.stripe.com/'
 gem 'gollum'
 gem 'whenever', :require => false
 gem 'asciidoctor'
