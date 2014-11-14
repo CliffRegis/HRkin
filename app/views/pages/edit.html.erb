@@ -1,5 +1,4 @@
 <br>
-<% if current_user.supporter_signed_in? %>
   <%= form_for([@user, @page]) do |f| %>
     <% if @page.errors.any? %>
       <div id="error_explanation">
@@ -24,4 +23,3 @@
       <%= f.submit 'Save'%>
     </div>
   <% end %>
-<% end %>

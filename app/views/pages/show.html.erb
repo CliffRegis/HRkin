@@ -1,5 +1,8 @@
 <h1><%= @page.title %></h1>
+ <div class="form-group">
 <p><%= @page.content %></p>
+<p><%= @page.document %></p>
+</div>
 
 <h3>Add collaborators</h3>
 <%= link_to 'Add collaborators', '', id: 'add-collaborators' %>
@@ -29,9 +32,11 @@
 <% end %>
 </div>
 
+<br>
 
-<%#= link_to 'Wiki page', user_pages_path, class: 'btn btn-success' 'alert alert-success'  %>  
-<%#= link_to 'Edit Wiki', edit_user_page_path(@user, @page), class: 'btn btn-success' 'alert alert-success' %> 
+<%= link_to 'Wiki page', user_pages_path, class: 'btn btn-success' 'alert alert-success'  %>  
+<%= link_to 'Edit Wiki', edit_user_page_path(@user, @page), class: 'btn btn-success' 'alert alert-success' %> 
+
 
   
 

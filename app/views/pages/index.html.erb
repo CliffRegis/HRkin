@@ -9,9 +9,10 @@
         <%= link_to page.title,user_page_path(current_user,page) %>
       </h4>
       <h5 class="media-heading">
-        <%= page.content %>
+        <%= truncate (page.content) %>
+       
       </h5>
-
+       
     </div>
       <%#= will_paginate @pages %>
   </div>

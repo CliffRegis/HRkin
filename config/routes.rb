@@ -17,7 +17,11 @@ Rails.application.routes.draw do
     resources :pages
     resources :collaborations
   end
-  
+
+  resources :pages do
+    resources :documents
+  end
+
   resources :users do
     member do
       get :supporting, :supporters
@@ -48,7 +52,8 @@ Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
   resources :votes, only: [:create]
   resources :comments
-  
+  resources :documents
+
   get 'about' => 'welcome#about'
  
  authenticated :user do

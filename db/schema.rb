@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141031191852) do
+ActiveRecord::Schema.define(version: 20141114172120) do
 
   create_table "collaborations", force: true do |t|
     t.integer  "user_id"
@@ -49,10 +49,11 @@ ActiveRecord::Schema.define(version: 20141031191852) do
   create_table "pages", force: true do |t|
     t.string   "name"
     t.string   "title"
-    t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.text     "document"
+    t.text     "content"
   end
 
   add_index "pages", ["user_id"], name: "index_pages_on_user_id"

@@ -4,9 +4,11 @@ class PagesController < ApplicationController
 
   def index
     @pages = current_user.pages.order_by_created_at.paginate(page: params[:page], per_page: 10)
+    @user = User.find(params[:user_id])
   end
   
   def show
+    @user = User.find(params[:user_id])
     @page = Page.find(params[:id])
     @users = User.all
   end
@@ -24,7 +26,6 @@ class PagesController < ApplicationController
   def create
     @user = User.find(params[:user_id])
     @page = @user.pages.build(page_params)
-
     if @page.save
       flash[:notice] = "Successfully created page."
       redirect_to [current_user, @page]
@@ -57,7 +58,7 @@ class PagesController < ApplicationController
   private
 
   def page_params
-    params.require(:page).permit(:name, :title, :content, :user, :user_ids => [])
+    params.require(:page).permit(:name, :title, :document, :content, :user, :user_ids => [])
   end
   
 end
