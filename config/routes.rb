@@ -53,6 +53,7 @@ Rails.application.routes.draw do
   resources :votes, only: [:create]
   resources :comments
   resources :documents
+  
 
   get 'about' => 'welcome#about'
  

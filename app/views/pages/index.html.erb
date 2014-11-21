@@ -6,7 +6,7 @@
   <div class="media">
     <div class="media-body">
       <h4 class="media-heading">
-        <%= link_to page.title,user_page_path(current_user,page) %>
+        <%= link_to page.title, [page.user, page] %>
       </h4>
       <h5 class="media-heading">
         <%= truncate (page.content) %>
@@ -22,4 +22,3 @@
 <br>
 <br>
 <%= link_to 'New wiki', new_user_page_path, class: 'btn btn-success' 'alert alert-success'  %>  
-

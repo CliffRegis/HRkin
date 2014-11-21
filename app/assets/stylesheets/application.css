@@ -4,6 +4,16 @@
   display: none;
 }
 
+.resume {
+    width: 1000px;
+    height: 250px;
+    overflow: scroll;
+}
+
+.document {
+    overflow: scroll;
+}
+
 .stats {
   overflow: auto;
   a {
