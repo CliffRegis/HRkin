@@ -16,21 +16,16 @@ Rails.application.routes.draw do
   resources :users do
     resources :pages
     resources :collaborations
-<<<<<<< HEAD
   end
 
   resources :pages do
     resources :documents
   end
 
-=======
-  end
-
   resources :pages do
     resources :documents
   end
 
->>>>>>> master
   resources :users do
     member do
       get :supporting, :supporters

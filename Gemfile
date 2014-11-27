@@ -27,15 +27,10 @@ gem 'sunspot_rails'
 gem 'sunspot_solr'
 gem 'redcarpet'
 gem 'stripe'
-# gem 'gollum'
 gem 'whenever', :require => false
 gem 'asciidoctor'
-<<<<<<< HEAD
 gem 'github-markdown'
 gem 'devise'
-=======
-# gem 'github-markdown'
->>>>>>> master
 gem 'progress_bar'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
