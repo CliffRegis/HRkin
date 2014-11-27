@@ -56,8 +56,6 @@ ActiveRecord::Schema.define(version: 20141114172120) do
     t.text     "content"
   end
 
-  add_index "pages", ["user_id"], name: "index_pages_on_user_id"
-
   create_table "posts", force: true do |t|
     t.string   "title"
     t.text     "content"
