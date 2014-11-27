@@ -2,7 +2,17 @@ source 'https://rubygems.org'
 source 'https://code.stripe.com'
 
 gem 'rails', '4.1.4'
-gem 'sqlite3'
+group :production do
+  gem 'rails_12factor'
+  gem 'pg'
+ end
+ 
+ group :development do
+   gem 'sqlite3'
+   gem 'binding_of_caller'
+   gem 'better_errors' 
+ end
+
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
@@ -17,11 +27,15 @@ gem 'sunspot_rails'
 gem 'sunspot_solr'
 gem 'redcarpet'
 gem 'stripe'
-gem 'gollum'
+# gem 'gollum'
 gem 'whenever', :require => false
 gem 'asciidoctor'
+<<<<<<< HEAD
 gem 'github-markdown'
 gem 'devise'
+=======
+# gem 'github-markdown'
+>>>>>>> master
 gem 'progress_bar'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
