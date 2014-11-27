@@ -1,12 +1,25 @@
- @import "bootstrap";
+@import "bootstrap";
 /* sidebar */
+.hidden {
+  display: none;
+}
+
+.resume {
+    width: 1000px;
+    height: 250px;
+    overflow: scroll;
+}
+
+.document {
+    overflow: scroll;
+}
 
 .stats {
   overflow: auto;
   a {
     float: left;
     padding: 0 10px;
-    border-left: 1px solid;
+    border-left: 1px solid $grayLighter;
     color: gray;
     &:first-child {
       padding-left: 0;
@@ -14,7 +27,7 @@
     }
     &:hover {
       text-decoration: none;
-      color: blue;
+      color: $blue;
     }
   }
   strong {

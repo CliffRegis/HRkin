@@ -1,24 +1,25 @@
 <div class="page-header">
   <center><strong><h1> HRKin Wiki </h1></strong></center>
 </div>
-
-
+ 
 <% @pages.each do |page| %>
   <div class="media">
     <div class="media-body">
       <h4 class="media-heading">
-        <%= page.title %>
+        <%= link_to page.title, [page.user, page] %>
       </h4>
       <h5 class="media-heading">
-        <%= page.content %>
+        <%= truncate (page.content) %>
+       
       </h5>
-
+       
     </div>
-     <%#= will_paginate @pages %>
+      <%#= will_paginate @pages %>
   </div>
   <hr>
 <% end %>
+
 <br>
 <br>
- <%= link_to 'New wiki', new_user_page_path, class: 'btn btn-success' 'alert alert-success'  %>  
+<%= link_to 'New wiki', new_user_page_path, class: 'btn btn-success' 'alert alert-success'  %>  
 

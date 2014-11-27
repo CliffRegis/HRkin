@@ -1,10 +1,10 @@
 class Post < ActiveRecord::Base
-  has_many :comments, dependent: :destroy
+  has_many :comments, dependent: :destroy, as: :commentable
   has_many :votes, dependent: :destroy
   belongs_to :user
   scope :reverse_relationships, ->(followers) { where user_id: followers }
   belongs_to :topic
-
+  # validates :content, length: {minimum: 20}, presence: true
   searchable do
 
     text :title, :boost => 5
@@ -15,7 +15,7 @@ class Post < ActiveRecord::Base
     integer :topic_id do
       topic.id 
     end
-  end
+   end
 
   def up_votes
     votes.where(value: 1).count
@@ -41,12 +41,11 @@ class Post < ActiveRecord::Base
   scope :visible_to, -> (user) {user ? all : joins(topic).where('topics.public' => true)}
 
   validates :title, length: {minimum: 5}, presence: true
-  validates :content, length: {minimum: 20}, presence: true
-  
-end
 
-private
+  private
 
   def create_vote
     user.votes.create(value: 1, post:self)
-  end
+  end 
+  
+end

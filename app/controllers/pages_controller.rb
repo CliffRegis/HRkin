@@ -1,16 +1,16 @@
 class PagesController < ApplicationController
-
- 
-  #layout :get_layout
+  #before_filter :authenticate_user!
   
-  # before_filter :find_page, :except => [:new, :show, :create]
-  # before_filter :find_body, :only => [:edit]
+
   def index
-   @pages = current_user.pages.order_by_created_at.paginate(page: params[:page], per_page: 10)
+    @pages = current_user.pages.order_by_created_at.paginate(page: params[:page], per_page: 10)
+    @user = User.find(params[:user_id])
   end
   
   def show
-   @page = Page.find(params[:id])
+    @user = User.find(params[:user_id])
+    @page = Page.find(params[:id])
+    @users = User.all
   end
 
   def new
@@ -19,13 +19,13 @@ class PagesController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:user_id])
     @page = Page.find(params[:id])
   end
 
   def create
     @user = User.find(params[:user_id])
     @page = @user.pages.build(page_params)
-
     if @page.save
       flash[:notice] = "Successfully created page."
       redirect_to [current_user, @page]
@@ -35,9 +35,11 @@ class PagesController < ApplicationController
   end
 
   def update
-    if @page.update_attributes(params[:page])
+    @page = Page.find(params[:id])
+    # binding.pry
+    if @page.update_attributes(page_params)
       flash[:notice] = "Successfully updated page."
-      redirect_to @page
+      redirect_to user_page_path
     else
       render :action => 'edit'
     end
@@ -56,7 +58,7 @@ class PagesController < ApplicationController
   private
 
   def page_params
-    params.require(:page).permit(:name, :title, :content, :user)
+    params.require(:page).permit(:name, :title, :document, :content, :user, :user_ids => [])
   end
   
 end
