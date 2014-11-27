@@ -6,6 +6,7 @@ class CollaborationsController < ApplicationController
 
   def new
     @collaboration = Collaboration.new
+  end
 
   def create
     @page = Page.find(params[:id])
