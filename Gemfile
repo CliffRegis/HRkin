@@ -6,6 +6,10 @@ group :production do
   gem 'rails_12factor'
   gem 'pg'
 end
+
+group :production do
+  gem 'thin'
+end
  
 group :development, :test do
   gem 'sqlite3'
