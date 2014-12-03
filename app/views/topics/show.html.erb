@@ -24,7 +24,7 @@
   <tr>
     <td><%= link_to post.title, [@topic, post] %></td>
     <td><%=pluralize(post.points, 'point') %></td> 
-    <td><%=post.created_at.to_formatted_s(:short) %></td> 
+    <td> Created <%= time_ago_in_words(post.created_at) %> ago </td>
   </tr>
   <% end %>
 </table>
