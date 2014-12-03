@@ -5,17 +5,17 @@ class Post < ActiveRecord::Base
   scope :reverse_relationships, ->(followers) { where user_id: followers }
   belongs_to :topic
   # validates :content, length: {minimum: 20}, presence: true
-  searchable do
+  # searchable do
 
-    text :title, :boost => 5
-    text :content
-    text :comments do
-      comments.map(&:content)
-    end 
-    integer :topic_id do
-      topic.id 
-    end
-   end
+  #   text :title, :boost => 5
+  #   text :content
+  #   text :comments do
+  #     comments.map(&:content)
+  #   end 
+  #   integer :topic_id do
+  #     topic.id 
+  #   end
+  #  end
 
   def up_votes
     votes.where(value: 1).count
