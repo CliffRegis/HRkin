@@ -3,26 +3,22 @@
 <%= render :partial => "/votes/vote", locals: {post: @post, vote: @vote } %>
 
 
-   <div>
-      <h3> <%=pluralize(@post.points, 'point') %> </h3>
-      <small>
-        <%= pluralize(@post.up_votes, 'up vote') %>,
-        <%= pluralize(@post.down_votes, 'down vote') %>,
-          <div class='js-comments-count'>
-          <%= pluralize(@comments.count,'comment') %>
-          </div>
-      </small>
-    </div>
-
-<div class="row">
-    <div class="col-md-8">
-      <h2> Comments:</h2>
-        <div class='js-comments'>
-        <%= render partial: "comments/comment", locals: {topic: @topic, post: @post, comment: @comment} %> 
-        </div>
+  <div>
+    <small>
+      <%= pluralize(@post.up_votes, 'up vote') %>,
+      <%= pluralize(@post.down_votes, 'down vote') %>
+        <div class='js-comments-count'>
+         </div>
+    </small>
+  </div>
+  <br>
+<div>
+    <h3> Comments:</h3>
+      <p class="italic"> <%= pluralize(@comments.count,'comment') %> </p>
+    <div>
+      <%= render partial: "comments/comment", locals: {topic: @topic, post: @post, comment: @comment} %> 
     </div>
 </div>
-
 <table>
   <tbody>
     <% @comments.each do |comment| %>
@@ -37,8 +33,7 @@
 </table>
 
 <br>
-
- <div class="col-md-8">
+ <div>
     <div class= 'new-comment'>
       <%= render :partial => "comments/form", locals: {post: @post, comment: @comment} %>
     </div>

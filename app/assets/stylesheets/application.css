@@ -3,6 +3,10 @@
 .hidden {
   display: none;
 }
+.yieldcontainer {
+  width: 900px;
+  margin-left: 120px;
+}
 
 .resume {
     width: 1000px;
@@ -57,6 +61,9 @@ text-align: center;
  margin-top: 20px;
  }
  
+ p.italic {
+  font-style: italic;
+}
 
  
 /*
