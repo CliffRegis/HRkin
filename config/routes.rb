@@ -20,10 +20,10 @@ Rails.application.routes.draw do
 
   resources :pages do
     resources :documents
+    resources :comments
   end
-
-  resources :pages do
-    resources :documents
+  resources :posts do
+    resources :comments
   end
 
   resources :users do

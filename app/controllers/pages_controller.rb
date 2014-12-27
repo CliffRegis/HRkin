@@ -39,15 +39,21 @@ class PagesController < ApplicationController
     # binding.pry
     if @page.update_attributes(page_params)
       flash[:notice] = "Successfully updated page."
-      redirect_to user_page_path
+      redirect_to [current_user, @page]
     else
       render :action => 'edit'
     end
   end
   
   def destroy
-    @page.destroy
-    flash[:notice] = "Successfully destroyed page."
+    @page = Page.find(params[:id])
+    if @page.destroy
+     flash[:notice] = "Successfully destroyed page."
+     redirect_to [current_user, @page]
+    else
+      flash[:error] = "Did not successfully delete page"
+      render :show
+    end
   end
   
   def preview

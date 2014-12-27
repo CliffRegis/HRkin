@@ -28,7 +28,9 @@
     <% @comments.each do |comment| %>
       <tr>
         <td><%= comment.content %></td>
-       
+        <td> &nbsp </td>
+        <td> <%= link_to "Delete", [@topic, @post], :method => :delete, 
+        :confirm => 'are you sure you want to delete' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -39,9 +41,6 @@
  <div class="col-md-8">
     <div class= 'new-comment'>
       <%= render :partial => "comments/form", locals: {post: @post, comment: @comment} %>
-      <%= link_to "Edit Comment", edit_topic_post_path(@topic,@post), class: 'btn btn-success' %>
-
-      <%= link_to "Delete Comment",[@topic, @post], :method => :delete, class: 'btn btn-danger', :confirm => 'are you sure you want to delete' %>
     </div>
   </div>
 
