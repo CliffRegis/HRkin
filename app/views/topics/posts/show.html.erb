@@ -1,7 +1,7 @@
 
 <%= render partial: 'post', locals: {post: @post, comment: @comment} %>
-<%= render :partial => "/votes/vote", locals: {post: @post, vote: @vote } %>
 
+<%= render :partial => "/votes/vote", locals: {post: @post, vote: @vote } %>
 
   <div>
     <small>
@@ -10,9 +10,15 @@
         <div class='js-comments-count'>
          </div>
     </small>
+
   </div>
   <br>
-<div>
+    <%= link_to 'All topics', topics_path %>
+    &nbsp
+    <%= link_to 'Go back to Topic',topic_path(@topic) %>
+ <div>
+  <br>
+  <hr>
     <h3> Comments:</h3>
       <p class="italic"> <%= pluralize(@comments.count,'comment') %> </p>
     <div>

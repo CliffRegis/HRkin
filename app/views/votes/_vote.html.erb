@@ -1,24 +1,24 @@
 
   <div class="vote-arrows pull-left">
-    <div>
+    <span id= "myToolTip" data-toggle="tooltip" title="I like this">
       <%= link_to " ", 
         post_up_vote_path(@post), 
-        class: 'glyphicon glyphicon-chevron-up', method: :post %>  
-    </div>
-   
-    <div>
-      <strong><%= post.points %></strong>
-    </div>
-
-    <div>
+        class: 'glyphicon glyphicon-thumbs-up', method: :post %>  
+      </span>
+    &nbsp
+      <span id= "myToolTip" data-toggle="tooltip" title="I dislike this"> 
       <%= link_to " ", 
        post_down_vote_path(@post), 
-        class: "glyphicon glyphicon-chevron-down", method: :post  %>
-    </div>
-  </div>
+        class: "glyphicon glyphicon-thumbs-down", method: :post  %>
+        </span>
+  </div> &nbsp
+
+<strong id= "myToolTip" data-toggle="tooltip" title="total score of votes..the higher the better"> =  &nbsp<%= post.points %></strong>
   
 
-
-
-    
+<script type="text/javascript">
+  $('document').ready(function(){
+    $('#myToolTip').tooltip();
+  });
+</script>
   

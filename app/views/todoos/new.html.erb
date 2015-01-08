@@ -6,6 +6,6 @@
     <%= f.label :name %> <br>
     <%= f.text_field :name, placeholder: "short description of task" %>
     <%= f.hidden_field :done, :value => false %>
-    <%= f.submit "Add to todoo list" %>
+    <%= f.submit "Add to the to-do list", class: 'btn btn-primary'  %>
    </div>
 <% end %>

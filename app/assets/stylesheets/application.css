@@ -6,6 +6,7 @@
 .yieldcontainer {
   width: 900px;
   margin-left: 120px;
+  margin-top: 100px;
 }
 
 .resume {
@@ -24,7 +25,7 @@
     float: left;
     padding: 0 10px;
     border-left: 1px solid;
-    color: gray;
+    color: white;
     &:first-child {
       padding-left: 0;
       border: 0;
@@ -54,8 +55,14 @@ text-align: center;
  }
  
  .nav {
-   margin-top: 5px;
- }
+  padding: 15px 100px 5px 5px;
+  background-color: #428bca;
+  color: #FF0000;
+}
+
+.navusername{
+  padding:10px 20px 5px 5px;
+}
 
  .favorite {
  margin-top: 20px;

@@ -5,16 +5,16 @@ class TodoosController < ApplicationController
      # if !current_user.subscribed
      #  redirect_to new_subscribe_path, :notice => "to view the Todoo you must subscribe"
      # end
-    @todos = Todoo.where(done: false)
-    @todone = Todoo.where(done: true)
+    @todos = current_user.todoos.where(done: false)
+    @todone = current_user.todoos.where(done: true)
   end
 
   def new
-    @todo = Todoo.new
+     @todo = Todoo.new
   end
 
   def create
-    @todo = Todoo.new(todo_params)
+    @todo = current_user.todoos.build(todo_params)
     if @todo.save
       redirect_to todoos_path, :notice => "Your todo item was created!"
     else
@@ -43,7 +43,7 @@ class TodoosController < ApplicationController
 
   private
   def todo_params
-    params.require(:todoo).permit(:name, :done)
+    params.require(:todoo).permit(:name, :done, :user, :user_id)
   end
 
 end

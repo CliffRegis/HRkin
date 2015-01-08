@@ -1,21 +1,26 @@
 <div class="page-header">
-  <center><strong><h1> HRtodo items </h1></strong></center>
+  <center><strong><h1> To-do items </h1></strong></center>
 </div>
 
-<h2> Todo: </h2>
+<div id= "myToolTip" data-toggle="tooltip" title="Tip: only add task that are specfic and will not take too much time to complete, in other words... go for the small wins" >
+<h2> Need to-do: </h2> </div>
+<h5> You have <%=@todos.count %> item(s) on your "To-do" list.</h5>
  
 <% @todos.each do |t| %>
   <p>
-    <strong> <%= t.name %> </strong>
+    <strong> * <%= t.name %> </strong>
     <small><%= t.countdown %> days</small>
     <small> <%= link_to 'Mark as Done', todoo_path(t), 
     :method => :put %> </small>
   </p>
-   <hr>
-<% end %>
-
-<h2> Todone: </h2>
-
+  <% end %>
+   <br>
+  <p><%= link_to 'Add item to the list', new_todoo_path, class: 'btn btn-success' 'alert alert-success' %> </p>
+  <hr>
+  <br>
+<div id= "myToolTip" data-toggle="tooltip" title="congratulations!" >
+ <h2>Done: </h2> </div>
+<h5> You have <%=@todone.count %> item(s) on your "Done" list.</h5>
 <% @todone.each do |t| %>
   <p>
     <strong> <%= t.name %> </strong>
@@ -24,4 +29,3 @@
   <hr>
 <%end%>
 
-<p><%= link_to 'Add an item to the list', new_todoo_path %> </p>

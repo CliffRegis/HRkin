@@ -10,9 +10,8 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_field :content, placeholder: "Write your comment here" %>
+  <div class="form-group">
+    <%= f.text_field :content, class: 'form-control', placeholder: "Write your comment here" %>
   </div>
   <div class="actions">
     <%= f.submit %>

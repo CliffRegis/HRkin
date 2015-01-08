@@ -1,7 +1,7 @@
 <% @user ||= current_user %>
 <div class="stats">
  
-  <a href="<%= user_friendships_path(@user) %>">
+  <a href="<%= user_friendships_path(@user)%>"
     <strong id="followers" class="stat">
       <%= current_user.friends.count %>
     </strong>

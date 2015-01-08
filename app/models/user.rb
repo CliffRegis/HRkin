@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
   has_many :posts, dependent: :destroy
   has_many :pages
+  has_many :todoos
   has_many :comments, dependent: :destroy
   has_many :votes, dependent: :destroy
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy

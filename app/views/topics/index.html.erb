@@ -1,20 +1,24 @@
 <div class="page-header">
-  <center><strong><h1> HRKin Topics </h1></strong></center>
+  <center><strong><h1 id= "myToolTip" data-toggle="tooltip" title="Click on a Topic title to view all of the posts for that Topic."> HRKin Topics </h1></strong>
+     
+  </center>
 </div>
 
 
 <% @topics.each do |topic| %>
   <div class="media">
     <div class="media-body">
-      <h4 class="media-heading">
-        <%= link_to topic.title, topic  %>
-      </h4>
+      <h3 class="media-heading">
+        <span id= "myToolTip" data-toggle="tooltip" title="Click on this link to view all of the posts for this Topic.">
+        <%= link_to topic.title, topic  %> </span>
+      </h3>
       <h5>
         <%= topic.content %>
       </h5>
      
-      <%= link_to 'Edit', edit_topic_path(topic) %>
-      <%= link_to 'Destroy', topic, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to 'Edit', edit_topic_path(topic),class: 'btn btn-success' 'alert alert-success' %>
+      <%= link_to 'Destroy', topic, class: 'btn btn-success' 'alert alert-success', method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to 'Open Topic', topic_path(topic), class: 'btn btn-success' 'alert alert-success'  %>
     </div>
      <%= will_paginate @topics %>
   </div>
