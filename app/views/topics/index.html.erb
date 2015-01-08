@@ -18,7 +18,7 @@
      
       <%= link_to 'Edit', edit_topic_path(topic),class: 'btn btn-success' 'alert alert-success' %>
       <%= link_to 'Destroy', topic, class: 'btn btn-success' 'alert alert-success', method: :delete, data: { confirm: 'Are you sure?' } %>
-      <%= link_to 'Open Topic', topic_path(topic), class: 'btn btn-success' 'alert alert-success'  %>
+      
     </div>
      <%= will_paginate @topics %>
   </div>

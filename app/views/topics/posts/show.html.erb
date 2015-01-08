@@ -29,10 +29,10 @@
   <tbody>
     <% @comments.each do |comment| %>
       <tr>
-        <td><%= comment.content %></td>
+        <td><%= comment.content %><small> <br> by <%= User.find(comment.user_id).username %></small><hr></td>
         <td> &nbsp </td>
         <td> <%= link_to "Delete", [@topic, @post], :method => :delete, 
-        :confirm => 'are you sure you want to delete' %></td>
+        :confirm => 'are you sure you want to delete' %><hr></td>
       </tr>
     <% end %>
   </tbody>
