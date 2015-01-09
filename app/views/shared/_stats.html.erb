@@ -1,6 +1,6 @@
 <% @user ||= current_user %>
 <div class="stats">
- 
+ <id: "myToolTip" data-toggle="tooltip" title="your number of HRkin friends">
   <a href="<%= user_friendships_path(@user)%>"
     <strong id="followers" class="stat">
       <%= current_user.friends.count %>

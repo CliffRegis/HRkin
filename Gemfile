@@ -41,6 +41,8 @@ gem 'stripe'
 gem 'whenever', :require => false
 gem 'asciidoctor'
 gem 'github-markdown'
+gem 'carrierwave'
+gem 'mini_magick'
 gem 'devise'
 gem 'progress_bar'
 gem 'jbuilder', '~> 2.0'

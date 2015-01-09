@@ -12,36 +12,36 @@
 <body>
  <nav class="navbar navbar-tab navbar-fixed-top">
   <a class="navbar-brand", href= "/">
-    <%= image_tag "logo.jpg", size: "80x40", alt: "HR kin logo", class: 'img-rounded' %>
+    <%= image_tag "logo.jpg", size: "95x40", alt: "HR kin logo", class: 'img-rounded' %>
   </a>
     
       <div class="navusername pull-right user-info">
            <% if current_user.present? %>
+              <%= image_tag(current_user.avatar.tiny.url)if current_user.avatar? %>
               Hi there  <%= link_to (current_user.username || current_user.email), current_user, {:style => "color:white"} %>!
               <%= render 'shared/stats' %>
-              <%= link_to edit_user_registration_path, class: 'btn btn-primary btn-sm' do %>
+              <id: "myToolTip" data-toggle="tooltip" title="edit your account"><%= link_to edit_user_registration_path, class: 'btn btn-primary btn-sm' do %>
                 <span class="glyphicon glyphicon-user"></span>
               <% end %>
                 
-               <%= link_to destroy_user_session_path, method: :delete, class: 'btn btn-primary btn-sm' do %>
+            <id: "myToolTip" data-toggle="tooltip" title="log-out"> <%= link_to destroy_user_session_path, method: :delete, class: 'btn btn-primary btn-sm' do %>
               <span class="glyphicon glyphicon-log-out"></span>
-         
-              <% end %>
-
-           
+             <% end %>
+          
            <% else %>
              <%= link_to "Sign In", new_user_session_path, class: 'btn btn-primary' %> 
              <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary' %>
            <% end %>
    </div>
 
-  <ul class="nav nav-pills">
-      
-      
-      <li id= "myToolTip" data-toggle="tooltip" title="view all topics and  posts"><%= link_to "Topics/Posts", topics_path, {:style => "color:white"}%></li>
+
+<div class="nav">
+ <% if current_user.present? %>
+   <ul class="nav nav-pills">
+     <li id= "myToolTip" data-toggle="tooltip" title="view all topics and  posts"><%= link_to "Topics/Posts", topics_path, {:style => "color:white"} %></li>
 
            
-      <li class="hidden-sm hidden-xs" id= "myToolTip" data-toggle="tooltip" title="make new friends"><%= link_to "Users", users_path,{:style => "color:white"}%></li>
+      <li class="hidden-sm hidden-xs" id= "myToolTip" data-toggle="tooltip" title="browse and connect with new people"><%= link_to "Users", users_path,{:style => "color:white"}%></li>
 
 
       <li id= "myToolTip" data-toggle="tooltip" title="view friend's posts"><%= link_to "Friends Wall", user_wall_path(:user_id), {:style => "color:white"}%></li>
@@ -54,10 +54,10 @@
         <% else %>
           <li id= "myToolTip" data-toggle="tooltip" title="View your wiki projects"><%= link_to 'Your Wikis', user_pages_path(current_user), {:style => "color:white"}%></li>
         <% end %>
-      <% end %>
-          
-       
- </ul>
+      <% end %>          
+  </ul>
+  <% end %> 
+</div>
 
 </nav>
       <% if flash[:notice] %>
@@ -77,9 +77,9 @@
          </div>
       <% end %>
 
-<div class="yieldcontainer">     
+<div class="yieldcontainer">
+<br>  
   <%= yield %>
 </div>
-
 </body>
 </html>

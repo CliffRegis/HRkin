@@ -15,12 +15,37 @@
     overflow: scroll;
 }
 
+.icon {
+    width: 10px;
+    height: 50px;
+    
+}
+
+.lefthr {
+    border-right: 1px solid #ccc;
+}
+
+.bodyimg  {
+    background-image: url("nyctwo.jpg");
+    background-repeat: no-repeat;
+}
+.whte { 
+  color: white;
+  text-shadow: 1px 1px black;
+  }
+
 .document {
     overflow: scroll;
 }
 
+.stat {
+
+  color: white;
+}
+
 .stats {
   overflow: auto;
+  color: white;
   a {
     float: left;
     padding: 0 10px;
@@ -54,23 +79,32 @@ text-align: center;
    margin-top: 9px;
  }
  
- .nav {
+.nav {
   padding: 15px 100px 5px 5px;
   background-color: #428bca;
-  color: #FF0000;
+  color: #FF0000; 
 }
 
 .navusername{
   padding:10px 20px 5px 5px;
 }
 
- .favorite {
+.favorite {
  margin-top: 20px;
  }
  
  p.italic {
   font-style: italic;
 }
+
+.gravatar {
+float: left;
+margin-right: 10px;
+}
+.gravatar_edit {
+margin-top: 15px;
+}
+
 
  
 /*

@@ -1,9 +1,12 @@
 <h3>User details</h3>
+<%= gravatar_for @user %>
 
 <h4><%= @user.username %>
 <br>
 <%= @user.email %></h4>
 
+
+</h1>
 <section>
   <%= render 'shared/stats' %>
   <%= pluralize(@user.posts.count, 'post') %>,

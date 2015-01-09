@@ -9,7 +9,17 @@
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
-
+    <% if current_user.avatar? %>
+      <div class="form-group">
+        <p>Current avatar</p>
+        <%= image_tag( current_user.gravatar.profile.url ) %>
+      </div>
+    <% end %>
+    <div class="form-group">
+      <%= f.label :gravatar %>
+      <%= f.file_field :gravatar %>
+     
+    </div>
   <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
     <%= f.password_field :password, autocomplete: "off" %></div>
 
