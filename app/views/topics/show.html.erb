@@ -12,17 +12,17 @@
     <%#= submit_tag "search", :title => nil %>
   </p>
   <% #end %> 
-<table class="table" style="width:100%;" >
+<table class="table" style="width:100%" >
   <tr>
-    <th> Title </th>
-    <th> Points </th> 
-    <th> Date </th>
+    <th> <%= link_to "Title"%></th>
+    <th> <%= link_to "Point"%></th> 
+    <th> <%= link_to "Created_at"%></th> 
   </tr>
    <% @posts.each do |post| %>
   <tr>
-    <td><%= link_to post.title, [@topic, post] %></td>
+    <td><%= link_to post.title,[@topic, post] %></td>
     <td><%=pluralize(post.points, 'point') %></td> 
-    <td><%= image_tag(post.user.avatar.tiny.url) if post.user.avatar? %> Created <%= time_ago_in_words(post.created_at) %> ago </td>
+    <td><%= image_tag(post.user.avatar.small.url) if post.user.avatar? %> Created <%= time_ago_in_words(post.created_at) %> ago </td>
   </tr>
   <% end %>
 </table>

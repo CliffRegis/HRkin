@@ -14,6 +14,7 @@ helper_method :sort_column, :sort_direction
     @topics = Topic.paginate(page: params[:page], per_page: 10)
     @topic = Topic.find(params[:id])
     @posts = @topic.posts
+
     # if query = params[:search]
     #     @search = @posts.search do
     #    fulltext(query)

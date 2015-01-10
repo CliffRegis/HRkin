@@ -1,10 +1,8 @@
-<div class="media">
-    <div class="media-body">
-     <h4 class="media-heading">
-      <%= link_to user.handle, user %>
-     </h4>
-     <%= pluralize(user.posts.count, 'post') %>,
-     <%= pluralize(user.comments.count, 'comment') %>
-   </div>
+<div class="media body">  
+  <%= image_tag(user.avatar.profile.url) %>
+  <%= link_to user.handle, user %> 
+  <%= pluralize(user.posts.count, 'post') %>,
+  <%= pluralize(user.comments.count, 'comment') %>
+  <hr>
 </div>
 

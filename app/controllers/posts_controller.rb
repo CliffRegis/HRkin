@@ -10,6 +10,7 @@ class PostsController < ApplicationController
    @comments = @post.comments
    @comment = Comment.new
    @name = @post.username
+   
  end
   
 end

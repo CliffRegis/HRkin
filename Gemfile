@@ -44,6 +44,7 @@ gem 'github-markdown'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'devise'
+gem 'figaro'
 gem 'progress_bar'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc

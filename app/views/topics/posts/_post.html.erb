@@ -6,7 +6,7 @@
           <h4 class="media-heading">
             <%= @post.title %>  
          <span class="user_avatars ">
-          <%= link_to gravatar_for @post.user %>
+         <%= image_tag(post.user.avatar.small.url) if post.user.avatar? %> 
         </span>
          <small>by <%= User.find(@post.user_id).username %></small> 
        </h4>

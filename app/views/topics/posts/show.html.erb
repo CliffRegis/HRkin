@@ -29,7 +29,7 @@
   <tbody>
     <% @comments.each do |comment| %>
       <tr>
-        <td><%= comment.content %><small> <br> by <%= User.find(comment.user_id).username %></small><hr></td>
+        <td><%= image_tag(comment.user.avatar.small.url) if comment.user.avatar? %>&nbsp<%= comment.content %><small> <br> by <%= User.find(comment.user_id).username %></small><hr></td>
         <td> &nbsp </td>
         <td> <%= link_to "Delete", [@topic, @post], :method => :delete, 
         :confirm => 'are you sure you want to delete' %><hr></td>

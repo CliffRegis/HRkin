@@ -31,3 +31,5 @@ stripe.rb
 
 # wiki.git
 /wiki.git
+# Ignore application configuration
+/config/application.yml

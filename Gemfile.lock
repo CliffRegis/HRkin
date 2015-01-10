@@ -67,6 +67,9 @@ GEM
     execjs (2.2.1)
     faker (1.4.1)
       i18n (~> 0.5)
+    figaro (0.7.0)
+      bundler (~> 1.0)
+      rails (>= 3, < 5)
     github-markdown (0.6.7)
     highline (1.6.21)
     hike (1.2.3)
@@ -217,6 +220,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
   faker
+  figaro
   github-markdown
   jbuilder (~> 2.0)
   jquery-rails
