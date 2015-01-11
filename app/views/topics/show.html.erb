@@ -12,19 +12,23 @@
     <%#= submit_tag "search", :title => nil %>
   </p>
   <% #end %> 
-<table class="table" style="width:100%" >
-  <tr>
-    <th> <%= link_to "Title"%></th>
-    <th> <%= link_to "Point"%></th> 
-    <th> <%= link_to "Created_at"%></th> 
-  </tr>
+<table id="postindex", class="table" >
+  <thead>
+    <tr>
+      <th><id: "myToolTip" data-toggle="tooltip" title="Sort by title"><button type="button" class="btn btn-primary">Title</button>&nbsp;&#8661;</th>
+      <th><id: "myToolTip" data-toggle="tooltip" title="Sort by points"><button type="button" class="btn btn-primary">Points</button>&#8661;</th>
+      <th><id: "myToolTip" data-toggle="tooltip" title="Sort by date"><button type="button" class="btn btn-primary">Date</button>&nbsp;&#8661;</th>
+    </tr>
+  <thead>
+  <tbody>
    <% @posts.each do |post| %>
   <tr>
-    <td><%= link_to post.title,[@topic, post] %></td>
-    <td><%=pluralize(post.points, 'point') %></td> 
-    <td><%= image_tag(post.user.avatar.small.url) if post.user.avatar? %> Created <%= time_ago_in_words(post.created_at) %> ago </td>
-  </tr>
-  <% end %>
+    <td ><%= link_to post.title,[@topic, post] %></td>
+    <td ><%=pluralize(post.points, 'point') %></td> 
+    <td ><%= image_tag(post.user.avatar.small.url) if post.user.avatar? %> Created <%= time_ago_in_words(post.created_at) %> ago </td>
+   </tr>
+    <% end %>
+  <tbody>
 </table>
 <br>
 

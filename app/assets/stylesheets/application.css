@@ -97,13 +97,6 @@ text-align: center;
   font-style: italic;
 }
 
-.gravatar {
-float: left;
-margin-right: 10px;
-}
-.gravatar_edit {
-margin-top: 15px;
-}
 
 
  
@@ -120,5 +113,7 @@ margin-top: 15px;
  * file per style scope.
  *
  *= require_tree .
+ *= require dataTables/jquery.dataTables
+ *= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
  *= require_self
  */

@@ -30,6 +30,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'turbolinks'
+gem 'jquery-turbolinks'
 gem 'popular'
 gem 'pundit'
 gem 'will_paginate', '~> 3.0.5'
@@ -48,6 +49,7 @@ gem 'devise'
 gem 'figaro'
 gem 'progress_bar'
 gem 'jbuilder', '~> 2.0'
+gem 'jquery-datatables-rails', '~> 3.1.1'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
