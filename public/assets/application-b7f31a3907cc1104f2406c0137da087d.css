@@ -1,0 +1,119 @@
+@import "bootstrap";
+/* sidebar */
+.hidden {
+  display: none;
+}
+.yieldcontainer {
+  width: 900px;
+  margin-left: 120px;
+  margin-top: 100px;
+}
+
+.resume {
+    width: 1000px;
+    height: 250px;
+    overflow: scroll;
+}
+
+.icon {
+    width: 10px;
+    height: 50px;
+    
+}
+
+.lefthr {
+    border-right: 1px solid #ccc;
+}
+
+.bodyimg  {
+    background-image: url("nyctwo.jpg");
+    background-repeat: no-repeat;
+}
+.whte { 
+  color: white;
+  text-shadow: 1px 1px black;
+  }
+
+.document {
+    overflow: scroll;
+}
+
+.stat {
+
+  color: white;
+}
+
+.stats {
+  overflow: auto;
+  color: white;
+  a {
+    float: left;
+    padding: 0 10px;
+    border-left: 1px solid;
+    color: white;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+      color: blue;
+    }
+  }
+  strong {
+    display: block;
+  }
+}
+
+.user_avatars {
+  overflow: auto;
+  margin-top: 10px;
+  .gravatar {
+    margin: 1px 1px;
+  }
+}
+.vote-arrows { width: 40px; 
+text-align: center;
+}
+.user-info {
+   margin-top: 9px;
+ }
+ 
+.nav {
+  padding: 15px 100px 5px 5px;
+  background-color: #428bca;
+  color: #FF0000; 
+}
+
+.navusername{
+  padding:10px 20px 5px 5px;
+}
+
+.favorite {
+ margin-top: 20px;
+ }
+ 
+ p.italic {
+  font-style: italic;
+}
+
+
+
+ 
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require dataTables/jquery.dataTables
+ *= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
+ *= require_self
+ */
