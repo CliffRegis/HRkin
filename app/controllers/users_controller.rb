@@ -20,6 +20,7 @@ class UsersController < ApplicationController
     @pages = @user.pages
     @comments = @user.comments
     @friends_post = @posts
+
   end
 
   def following
@@ -36,9 +37,11 @@ class UsersController < ApplicationController
     render 'show_follow'
   end
  
+
+  
   private
  
   def user_params
-    params.require(:user).permit(:username, :name, :avatar, :email_favorites)
+    params.require(:user).permit(:username, :post, :name, :avatar, :email_favorites)
   end
 end

@@ -4,15 +4,15 @@
 
 <%= link_to 'Edit Topic', edit_topic_path(@topics) %> |
 <%= link_to 'Back', topics_path %>
-
-<h2> Posts </h2>
+<hr>
+<h2> Posts: </h2>
    <%#= form_tag topic_path(@topic, @posts), :method => :get do %>
   <p>
     <%#= text_field_tag :search, params[:search] %>
     <%#= submit_tag "search", :title => nil %>
   </p>
   <% #end %> 
-<table id="postindex", class="table" >
+<table id="postindex", class="table table-hover" >
   <thead>
     <tr>
       <th><id: "myToolTip" data-toggle="tooltip" title="Sort by title"><button type="button" class="btn btn-primary">Title</button>&nbsp;&#8661;</th>
