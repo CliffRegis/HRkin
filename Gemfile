@@ -46,6 +46,7 @@ gem 'devise'
 gem 'figaro'
 gem 'progress_bar'
 gem 'jbuilder', '~> 2.0'
+gem 'unicorn'
 gem 'jquery-datatables-rails', '~> 3.1.1'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
