@@ -25,7 +25,7 @@
 stripe.rb
 
 /config/initializers/stripe.rb
-/config/database.yml
+
 
 /config/sunspot.yml
 
