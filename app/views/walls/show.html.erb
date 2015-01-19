@@ -9,7 +9,8 @@
 
         <h5> <%= post.content %> </h5>
     </div>
-     
+   
+    <br>
     <small><%= image_tag(post.user.avatar.small.url) if post.user.avatar? %><%= User.find(post.user_id).username %>
      submitted this post <%= time_ago_in_words(post.created_at) %> ago. <h5><%= post.points %> <strong>point(s)</strong></h5>
     </small>
