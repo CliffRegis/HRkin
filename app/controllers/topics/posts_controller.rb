@@ -29,7 +29,7 @@ class Topics::PostsController < ApplicationController
   def create
     
     @topic = Topic.find(params[:topic_id])
-    @post = current_user.posts.build(params.require(:post).permit(:title, :id, :post_id, :image, :kind, :content))
+    @post = current_user.post.build(params.require(:post).permit(:title, :id, :post_id, :image, :kind, :content))
     @post.topic = @topic
     
     if @post.save
