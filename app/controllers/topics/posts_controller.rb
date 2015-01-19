@@ -1,35 +1,29 @@
 class Topics::PostsController < ApplicationController
- 
-  
+   
   def index
      @posts = Post.all
   end
 
   def show
-    
     @topic = Topic.find(params[:topic_id])
     @post = Post.find(params[:id])
     @comments = @post.comments
     @comment = Comment.new  
-
   end
 
   def new
     @topic = Topic.find(params[:topic_id])
     @post = Post.new
-    
   end
 
   def edit
     @topic = Topic.find(params[:topic_id])
     @post = Post.find(params[:id])
-   
   end
 
   def create
-    
     @topic = Topic.find(params[:topic_id])
-    @post = current_user.post.build(params.require(:post).permit(:title, :id, :post_id, :image, :kind, :content))
+    @post = current_user.posts.build(params.require(:post).permit(:title, :id, :post_id, :image, :kind, :content))
     @post.topic = @topic
     
     if @post.save
@@ -53,13 +47,13 @@ class Topics::PostsController < ApplicationController
     end
   end
 
-def destroy
+  def destroy
     @post = Post.find(params[:id])
     @post.destroy
     respond_to do |format|
       format.html { redirect_to topics_url, notice: 'Post or comment was successfully destroyed.' }
       format.json { head :no_content }
     end
-  end
+   end
 
 end

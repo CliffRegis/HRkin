@@ -1,16 +1,14 @@
 source 'https://rubygems.org'
 ruby '2.1.2'
-#source 'https://code.stripe.com'
+source 'https://code.stripe.com'
 
 gem 'rails', '4.1.4'
-
 
 group :production do
   gem 'rails_12factor'
   gem 'pg'
 end
 
- 
 group :development, :test do
   gem 'sqlite3'
   gem 'quiet_assets'
