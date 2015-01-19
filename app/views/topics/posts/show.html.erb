@@ -25,21 +25,20 @@
     <div>
       <%= render partial: "comments/comment", locals: {topic: @topic, post: @post, comment: @comment} %> 
     </div>
-</div>
-<table>
+ </div>
+ <table>
   <tbody>
     <% @comments.each do |comment| %>
       <tr>
         <td><%= image_tag(comment.user.avatar.small.url) if comment.user.avatar? %>&nbsp<%= comment.content %><small> <br> by <%= User.find(comment.user_id).username %></small><hr></td>
         <td> &nbsp </td>
-        <td> <%= link_to "Delete", [@topic, @post], :method => :delete, 
-        :confirm => 'are you sure you want to delete' %><hr></td>
+        
       </tr>
     <% end %>
   </tbody>
-</table>
+ </table>
 
-<br>
+  <br>
  <div>
     <div class= 'new-comment'>
       <%= render :partial => "comments/form", locals: {post: @post, comment: @comment} %>

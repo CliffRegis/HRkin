@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   respond_to :html, :js
-  # before_filter :load_commentable
+  before_filter :load_commentable
   
   def create
     @post = Post.find(params[:post_id])
