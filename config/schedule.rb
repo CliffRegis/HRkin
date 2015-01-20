@@ -1,6 +1,6 @@
-every :reboot do
-  rake "sunspot:solr:start"
-end
+# every :reboot do
+#   rake "sunspot:solr:start"
+# end
 
 every 1.day do
   rake 'delete_items'
