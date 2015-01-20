@@ -1,6 +1,7 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
+   config.secret_key = ENV['DEVISE_SECRET_KEY']
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
@@ -14,9 +15,7 @@ Devise.setup do |config|
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
-  config.secret_key = ENV['DEVISE_SECRET_KEY']
-  # 8bf25787baea0305ed67e9569f1764650ce876dfbd057d66a977a0240db0f9c38b75f488b0e198889e7d86b8f9bd575e3f2cc8ca813eca294f3b19352ee19129'
-
+ 
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
