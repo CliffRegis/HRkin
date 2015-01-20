@@ -28,5 +28,7 @@ $ (document).ready(function() {
     $('#myToolTip').tooltip();
   });
   </script>
+  jQuery ->
+  $('#postindex').DataTable();
 
-   });
+  });
