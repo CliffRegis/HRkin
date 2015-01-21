@@ -25,8 +25,9 @@ $(document).ready(function() {
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <%= csrf_meta_tags %>
 
-  <!--%= tag :meta, :name => "stripe-key", :content => STRIPE_PUBLIC_KEY %>-->
-
+  <%= tag :meta, :name => "stripe-key", :content => STRIPE_PUBLIC_KEY %>
+ 
+ <%= javascript_include_tag :application %>
 
 </head>
 
@@ -48,7 +49,7 @@ $(document).ready(function() {
                 <span class="glyphicon glyphicon-user"></span>
           <% end %>
                 
-        <id: "myToolTip" data-toggle="tooltip" title="log-out"> <%= link_to destroy_user_session_path, method: :delete, class: 'btn btn-primary btn-sm' do %>
+        <id: "myToolTip" data-toggle="tooltip" title="log-out"> <%= link_to  destroy_user_session_path, method: :delete, class: 'btn btn-primary btn-sm' do %>
            <span class="glyphicon glyphicon-log-out"></span>
         <% end %>
         <% else %>
