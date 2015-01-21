@@ -22,9 +22,13 @@ $ (document).ready(function() {
       $('.add-collaborators').removeClass ('hidden');
       return false;
   });
-  <script type="text/javascript">
-  $('document').ready(function(){
-    $('#myToolTip').tooltip();
+
+$ (document).ready(function() {
+  $('#myToolTip').tooltip();
   });
-  </script>
+
+$ (document).ready(function() {
+  $('#postindex').DataTable();
+  });
+  
 });

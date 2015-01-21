@@ -6,17 +6,13 @@
 <%= link_to 'Back', topics_path %>
 <hr>
 <h2> Posts: </h2>
-   <%#= form_tag topic_path(@topic, @posts), :method => :get do %>
-  <p>
-    <%#= text_field_tag :search, params[:search] %>
-    <%#= submit_tag "search", :title => nil %>
-  </p>
-  <% #end %> 
+   
+
 <table id="postindex", class="table table-hover" >
   <thead>
     <tr>
       <th><id: "myToolTip" data-toggle="tooltip" title="Sort by title"><button type="button" class="btn btn-primary">Title</button>&nbsp;&#8661;</th>
-      <th><id: "myToolTip" data-toggle="tooltip" title="Sort by points"><button type="button" class="btn btn-primary">Points</button>&#8661;</th>
+      <th><id: "myToolTip" data-toggle="tooltip" title="Sort by points"><button type="button" class="btn btn-primary">Point(s)</button>&#8661;</th>
       <th><id: "myToolTip" data-toggle="tooltip" title="Sort by date"><button type="button" class="btn btn-primary">Date</button>&nbsp;&#8661;</th>
     </tr>
   <thead>
