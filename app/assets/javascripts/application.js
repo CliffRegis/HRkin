@@ -28,7 +28,6 @@ $ (document).ready(function() {
   });
 
 $ (document).ready(function() {
-  $('#postindex').DataTable( {
-  "searching": true
-   } );
+  $('#postindex').dataTable();
+  } );
   
