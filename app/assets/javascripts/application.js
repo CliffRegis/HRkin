@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.turbolinks
-//= require dataTables/jquery.dataTables
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 //= require turbolinks
 //= require_tree .
@@ -28,6 +27,6 @@ $ (document).ready(function() {
   });
 
 $ (document).ready(function() {
-  $('#postindex').dataTable();
+  $('#postindex').DataTable();
   } );
   
