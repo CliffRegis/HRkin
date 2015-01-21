@@ -28,7 +28,7 @@ $ (document).ready(function() {
   });
 
 $ (document).ready(function() {
-  $('#postindex').DataTable();
-  });
+  $('#postindex').DataTable( {
+  "searching": true
+   } );
   
-});
