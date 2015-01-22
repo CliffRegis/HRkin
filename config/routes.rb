@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
+
+devise_for :users
+
+devise_scope :user do
+  get "sign_out", to: "devise/sessions#destroy"
+end
   
 
-  
-  devise_for :users do get '/users/sign_out' => 'devise/sessions#destroy' 
-    get 'users/:id' => 'users#show'
-  end
-  
   resources :users, only: [:update, :show, :index] do
     resources :friendships, only: [:create, :destroy]
     resource :wall
