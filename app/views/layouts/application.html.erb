@@ -26,11 +26,10 @@ $(document).ready(function() {
   <%= csrf_meta_tags %>
 
   <%#= tag :meta, :name => "stripe-key", :content => STRIPE_PUBLIC_KEY %>
- 
+ <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
  <%= javascript_include_tag :application %>
 
 </head>
-
 
 
 
