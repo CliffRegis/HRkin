@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   
   devise_for :users
-  devise_for :users do get '/users/sign_out' => 'devise/sessions#destroy' 
-    end
+  
   resources :users, only: [:update, :show, :index] do
     resources :friendships, only: [:create, :destroy]
     resource :wall
