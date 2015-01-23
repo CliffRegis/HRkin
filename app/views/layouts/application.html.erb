@@ -48,9 +48,7 @@ $(document).ready(function() {
                 <span class="glyphicon glyphicon-user"></span>
           <% end %>
                 
-        <id: "myToolTip" data-toggle="tooltip" title="log-out"> 
-        <%=link_to "Log out", destroy_user_session_path, :method => :delete %>
-        <%= link_to  destroy_user_session_path, method: :delete, class: 'btn btn-primary btn-sm' do %>
+        <id: "myToolTip" data-toggle="tooltip" title="log-out"> <%= link_to  destroy_user_session_path, method: :delete, class: 'btn btn-primary btn-sm' do %>
            <span class="glyphicon glyphicon-log-out"></span>
         <% end %>
         <% else %>
