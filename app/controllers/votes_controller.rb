@@ -7,7 +7,7 @@ class VotesController < ApplicationController
     else
     @vote = current_user.votes.create(value: 1, post: @post)
     end
-    redirect_to :back
+    redirect_to topic_post_path
   end
   
 
