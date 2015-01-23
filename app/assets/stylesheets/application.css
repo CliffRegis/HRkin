@@ -1,3 +1,5 @@
+// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+@import "bootstrap-sprockets";
 @import "bootstrap";
 /* sidebar */
 .hidden {
@@ -72,8 +74,9 @@
     margin: 1px 1px;
   }
 }
-.vote-arrows { width: 40px; 
-text-align: center;
+.vote-arrows { 
+ width: 40px; 
+ text-align: center;
 }
 .user-info {
    margin-top: 9px;

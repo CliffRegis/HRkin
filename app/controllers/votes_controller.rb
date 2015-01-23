@@ -5,9 +5,9 @@ class VotesController < ApplicationController
     if @vote
       @vote.update_attribute(:value, 1)
     else
-    @vote = current_user.votes.create(value: 1, post: @post)
+      @vote = current_user.votes.create(value: 1, post: @post)
     end
-    redirect_to topic_post_path
+    redirect_to :back
   end
   
 
@@ -30,7 +30,7 @@ class VotesController < ApplicationController
 
   def update_vote!(new_value)
     if @vote 
-      authorize @vote, :update?
+         authorize @vote, :update?
       @vote.update_attribute(:value, new_value)
     else
       @vote = current_user.votes.build(value: new_value, post: @post)

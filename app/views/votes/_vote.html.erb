@@ -1,15 +1,12 @@
 
+  
   <div class="vote-arrows pull-left">
     <span id= "myToolTip" data-toggle="tooltip" title="I like this">
-      <%= link_to " ", 
-        post_up_vote_path(@post), 
-        class: 'glyphicon glyphicon-thumbs-up', method: :post %>  
+      <%= link_to " ", post_up_vote_path(post), class: 'glyphicon glyphicon-thumbs-up', method: :post %>  
       </span>
     &nbsp
       <span id= "myToolTip" data-toggle="tooltip" title="I dislike this"> 
-      <%= link_to " ", 
-       post_down_vote_path(@post), 
-        class: "glyphicon glyphicon-thumbs-down", method: :post  %>
+      <%= link_to " ", post_down_vote_path(post), class: "glyphicon glyphicon-thumbs-down", method: :post  %>
         </span>
   </div> &nbsp
 
