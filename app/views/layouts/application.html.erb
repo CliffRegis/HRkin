@@ -4,15 +4,14 @@
   
   <title>Hrkin</title>
 
-
-  <script type="text/javascript" language="javascript" src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <script type="text/javascript" language="javascript" src="//cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
   <script type="text/javascript" language="javascript" src="//cdn.datatables.net/plug-ins/3cfcc339e89/integration/bootstrap/3/dataTables.bootstrap.js"></script>
   <script type="text/javascript" class="init">
 
-$(document).ready(function() {
+  $(document).ready(function() {
   $('#postindex').DataTable();
-} );
+  } );
 
   </script>
 
@@ -26,9 +25,7 @@ $(document).ready(function() {
   <%= csrf_meta_tags %>
 
   <%#= tag :meta, :name => "stripe-key", :content => STRIPE_PUBLIC_KEY %>
- <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
- <%= javascript_include_tag :application %>
-
+ 
 </head>
 
 
@@ -44,11 +41,11 @@ $(document).ready(function() {
       <%= image_tag(current_user.avatar.small.url)if current_user.avatar? %>
        Hi there  <%= link_to (current_user.username || current_user.email), current_user, {:style => "color:white"} %>!
       <%= render 'shared/stats' %>
-        <id: "myToolTip" data-toggle="tooltip" title="edit your account"><%= link_to edit_user_registration_path, class: 'btn btn-primary btn-sm' do %>
+        <li id="myToolTip" data-toggle="tooltip" title="edit your account"><%= link_to edit_user_registration_path, class: 'btn btn-primary btn-sm' do %>
                 <span class="glyphicon glyphicon-user"></span>
           <% end %>
                 
-        <id: "myToolTip" data-toggle="tooltip" title="log-out"> <%= link_to  destroy_user_session_path, method: :delete, class: 'btn btn-primary btn-sm' do %>
+        <li id="myToolTip" data-toggle="tooltip" title="log-out"> <%= link_to  destroy_user_session_path, method: :delete, class: 'btn btn-primary btn-sm' do %>
            <span class="glyphicon glyphicon-log-out"></span>
         <% end %>
         <% else %>
@@ -59,15 +56,15 @@ $(document).ready(function() {
   <div class="nav">
     <% if current_user.present? %>
       <ul class="nav nav-pills">
-        <li id= "myToolTip" data-toggle="tooltip" title="view all topics and posts"><%= link_to "Topics/Posts", topics_path, {:style => "color:white"} %></li>
+        <li id="myToolTip" data-toggle="tooltip" title="view all topics and posts"><%= link_to "Topics/Posts", topics_path, {:style => "color:white"} %></li>
         <li class="hidden-sm hidden-xs" id= "myToolTip" data-toggle="tooltip" title="browse and connect with new people"><%= link_to "Users", users_path,{:style => "color:white"}%></li>
-        <li id= "myToolTip" data-toggle="tooltip" title="view friend's posts"><%= link_to "Friends Wall", user_wall_path(:user_id), {:style => "color:white"}%></li>
-         <li id= "myToolTip" data-toggle="tooltip" title="create tasks and get them done!"><%= link_to 'To-do list', todoos_path, {:style => "color:white"}%></li>
+        <li id="myToolTip" data-toggle="tooltip" title="view friend's posts"><%= link_to "Friends Wall", user_wall_path(:user_id), {:style => "color:white"}%></li>
+         <li id="myToolTip" data-toggle="tooltip" title="create tasks and get them done!"><%= link_to 'To-do list', todoos_path, {:style => "color:white"}%></li>
         <% if current_user.present? %>
         <% if current_user.pages.empty? %>
-        <li id= "myToolTip" data-toggle="tooltip" title="create a new wiki project to share with friends"><%= link_to 'Create a new wiki',new_user_page_path(current_user), {:style => "color:white"}%></li>
+        <li id="myToolTip" data-toggle="tooltip" title="create a new wiki project to share with friends"><%= link_to 'Create a new wiki',new_user_page_path(current_user), {:style => "color:white"}%></li>
          <% else %>
-         <li id= "myToolTip" data-toggle="tooltip" title="View your wiki projects"><%= link_to 'Your Wikis', user_pages_path(current_user), {:style => "color:white"}%></li>
+         <li id="myToolTip" data-toggle="tooltip" title="View your wiki projects"><%= link_to 'Your Wikis', user_pages_path(current_user), {:style => "color:white"}%></li>
         <% end %>
         <% end %>          
       </ul>
@@ -75,7 +72,11 @@ $(document).ready(function() {
   </div>
 
 </nav>
-      <% if flash[:notice] %>
+      
+
+<div class="yieldcontainer">
+<br>  
+<% if flash[:notice] %>
          <div class="alert alert-success">
            <button type="button" class="close" data-dismiss="alert">&times;</button>
            <%= flash[:notice] %>
@@ -91,9 +92,6 @@ $(document).ready(function() {
            <%= flash[:alert] %>
          </div>
       <% end %>
-
-<div class="yieldcontainer">
-<br>  
   <%= yield %>
 </div>
 </body>

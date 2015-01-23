@@ -49,22 +49,17 @@ class Topics::PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
-    
+    @topic = @post.topic
     title = @post.title
     authorize @post
     if @post.destroy
-      flash[:notice] = "\"#{title}\" was deleted successfully."
+      flash[:notice] = "post was deleted successfully"
+      #flash[:notice] = "\"#{title}\" was deleted successfully."
       redirect_to @topic
     else
       flash[:error] = "There was an error deleting the post."
       render :show
     end
-
-    
-    respond_to do |format|
-      format.html { redirect_to topics_url, notice: 'Post or comment was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-   end
+  end
 
 end
