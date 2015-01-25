@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap
 //= require jquery.turbolinks
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 //= require turbolinks
