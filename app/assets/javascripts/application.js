@@ -21,12 +21,12 @@ $ (document).ready(function() {
       $('.add-collaborators').removeClass ('hidden');
       return false;
   });
-
+});
 $ (document).ready(function() {
   $('#myToolTip').tooltip();
   });
 
 $ (document).ready(function() {
   $('#postindex').DataTable();
-  } );
+});
   
