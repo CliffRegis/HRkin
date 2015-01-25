@@ -42,11 +42,11 @@
       <%= image_tag(current_user.avatar.small.url)if current_user.avatar? %>
        Hi there  <%= link_to (current_user.username || current_user.email), current_user, {:style => "color:white"} %>!
       <%= render 'shared/stats' %>
-        <li id="myToolTip" data-toggle="tooltip" title="edit your account"><%= link_to edit_user_registration_path, class: 'btn btn-primary btn-sm' do %>
+        <id="myToolTip" data-toggle="tooltip" title="edit your account"><%= link_to edit_user_registration_path, class: 'btn btn-primary btn-sm' do %>
                 <span class="glyphicon glyphicon-user"></span>
           <% end %>
                 
-        <li id="myToolTip" data-toggle="tooltip" title="log-out"> <%= link_to  destroy_user_session_path, method: :delete, class: 'btn btn-primary btn-sm' do %>
+        <id="myToolTip" data-toggle="tooltip" title="log-out"> <%= link_to  destroy_user_session_path, method: :delete, class: 'btn btn-primary btn-sm' do %>
            <span class="glyphicon glyphicon-log-out"></span>
         <% end %>
         <% else %>
@@ -74,9 +74,9 @@
 
 </nav>
       
-
+<br> 
 <div class="yieldcontainer">
-<br>  
+ 
 <% if flash[:notice] %>
          <div class="alert alert-success">
            <button type="button" class="close" data-dismiss="alert">&times;</button>
