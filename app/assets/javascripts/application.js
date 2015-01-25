@@ -17,17 +17,17 @@
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 //= require turbolinks
 //= require_tree .
-// $ (document).ready(function() {
-//   $('#add-collaborators').click(function() {
-//       $('.add-collaborators').removeClass ('hidden');
-//       return false;
-//   });
-// });
-// $ (document).ready(function() {
-//   $('#myToolTip').tooltip();
-//   });
+$ (document).ready(function() {
+  $('#add-collaborators').click(function() {
+      $('.add-collaborators').removeClass ('hidden');
+      return false;
+  });
+});
+$ (document).ready(function() {
+  $('#myToolTip').tooltip();
+  });
 
-// $ (document).ready(function() {
-//   $('#postindex').DataTable();
-// });
+$ (document).ready(function() {
+  $('#postindex').DataTable();
+});
   
