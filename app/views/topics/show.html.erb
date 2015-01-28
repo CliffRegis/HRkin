@@ -21,7 +21,7 @@
   <tr>
     <td ><%= link_to post.title,[@topic, post] %></td>
     <td ><%=pluralize(post.points, 'point') %></td> 
-    <td ><%= post.created_at.strftime("%B %e, %Y_%I:%M%p") %></td>
+    <td ><%= post.created_at.strftime("%B %e, %Y %I:%M%p") %></td>
     
    </tr>
     <% end %>
