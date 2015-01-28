@@ -21,7 +21,7 @@
   <tr>
     <td ><%= link_to post.title,[@topic, post] %></td>
     <td ><%=pluralize(post.points, 'point') %></td> 
-    <td ><%= (post.created_at) %> ago </td>
+    <td >Created<%= time_ago_in_words(post.created_at) %> ago <span class='hidden'><%= post.created_at.strftime('%Y/%m/%d')%></span>%></td>
    </tr>
     <% end %>
   <tbody>
