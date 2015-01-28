@@ -30,9 +30,13 @@
   <tbody>
     <% @comments.each do |comment| %>
       <tr>
-        <td><%= image_tag(comment.user.avatar.small.url) if comment.user.avatar? %>&nbsp<%= comment.content %><small> <i>created on <%=comment.created_at.to_formatted_s(:short) %><br></i> </small><hr></td>
-        <td> &nbsp </td>
-        
+        <td><%= image_tag(comment.user.avatar.small.url)if comment.user.avatar? %> &nbsp 
+          <%= comment.content %><small> <i>created by </i> 
+          <%= link_to comment.user.handle, [comment.user, @user] %>
+          <b></b> on <%=comment.created_at.to_formatted_s(:short) %><br></small>&nbsp
+
+        <%= link_to "Delete",[@post, comment], :method => :delete, class: 'btn btn-success' 'alert alert-success', :confirm => 'are you sure you want to delete' %> 
+          <hr></td>
       </tr>
     <% end %>
   </tbody>

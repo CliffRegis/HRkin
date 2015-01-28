@@ -8,7 +8,9 @@
          <span class="user_avatars ">
          <%= image_tag(post.user.avatar.small.url) if post.user.avatar? %> 
         </span>
-         <small>by<%= User.find(@post.user_id).username %> </small> 
+         <small>by&nbsp<%= link_to post.user.handle, [@post.user, @user] %> </small> 
+
+
        </h4>
         </div>
       </div>  
@@ -18,6 +20,7 @@
       <%= @post.content %> 
         <% end %>
         <br>  
+        <br> 
       <%= link_to 'Edit Post', edit_topic_post_path(@topic, @post), class: 'btn btn-success' 'alert alert-success'  %>
       <%= link_to "Delete Post",[@topic, @post], :method => :delete, class: 'btn btn-success' 'alert alert-success', :confirm => 'are you sure you want to delete' %> 
     </div>
