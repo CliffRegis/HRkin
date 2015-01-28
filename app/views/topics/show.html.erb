@@ -21,7 +21,7 @@
   <tr>
     <td ><%= link_to post.title,[@topic, post] %></td>
     <td ><%=pluralize(post.points, 'point') %></td> 
-    <td ><%= image_tag(post.user.avatar.small.url) if post.user.avatar? %> Created <%= time_ago_in_words(post.created_at) %> ago </td>
+    
    </tr>
     <% end %>
   <tbody>

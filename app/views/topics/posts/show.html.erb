@@ -22,9 +22,9 @@
   <hr>
     <h3> Comments:</h3>
       <p class="italic"> <%= pluralize(@comments.count,'comment') %> </p>
-    <div>
+   <div>
       <%= render partial: "comments/comment", locals: {topic: @topic, post: @post, comment: @comment} %> 
-    </div>
+    </div> 
  </div>
  <table>
   <tbody>

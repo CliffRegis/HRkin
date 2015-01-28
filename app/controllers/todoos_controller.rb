@@ -7,6 +7,7 @@ class TodoosController < ApplicationController
     #  end
     @todos = current_user.todoos.where(done: false)
     @todone = current_user.todoos.where(done: true)
+     
   end
 
   def new
@@ -24,6 +25,8 @@ class TodoosController < ApplicationController
 
   def show
     @todo = Todoo.find(params[:id])
+    @comments = @todo.comments
+    @comment = Comment.new     
   end
 
   def update
@@ -43,7 +46,7 @@ class TodoosController < ApplicationController
 
   private
   def todo_params
-    params.require(:todoo).permit(:name, :done, :user, :user_id)
+    params.require(:todoo).permit(:name, :content, :done, :user, :user_id)
   end
 
 end

@@ -19,6 +19,10 @@ devise_for :users
     resources :collaborations
   end
 
+  resources :todoos do
+    resources :comments
+  end
+
   resources :pages do
     resources :documents
     resources :comments

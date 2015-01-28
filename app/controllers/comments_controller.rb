@@ -8,11 +8,12 @@ class CommentsController < ApplicationController
     @comment = @post.comments.build(comment_params)
     @comment.user = current_user
     if @comment.save
-      redirect_to [@topic, @post], notice:'Comment was saved'
+      redirect_to :back, notice:'Comment was saved'
     else
       flash[:alert] = 'Comment failed'
       redirect_to [@topic, @post]
     end
+
   end
 
   def destroy
@@ -34,7 +35,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:user_id, :id, :username, :name, :title, :post_id, :content, :commentable_id, :commentable_type)
+    params.require(:comment).permit(:user_id, :id, :username, :name, :title, :todoo_id, :post_id, :content, :commentable_id, :commentable_type)
   end
 
    def load_commentable
