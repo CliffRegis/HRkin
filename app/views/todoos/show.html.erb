@@ -9,19 +9,7 @@
     <% end %>
   </tbody>
  </table>
-
-
-  <%= form_for [(@todo, @comment)] do |f| %>
-  
-  <div class="form-group">
-    <%= f.text_field :content, class: 'form-control', placeholder: "Write your comment here" %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
- 
-  </div>
+ <%= render "comments/comments" %>
  <div>
     <div class= 'new-comment'>
       <%= render :partial => "comments/form", locals: {todoo: @todoo, comment: @comment} %>
