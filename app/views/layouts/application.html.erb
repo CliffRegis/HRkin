@@ -58,7 +58,7 @@
   </div>
   <div class="nav">
     <% if current_user.present? %>
-      <ul class="nav nav-pills">
+      <ul class="nav nav-pills ">
         <li id="myToolTip" data-toggle="tooltip" title="view all topics and posts"><%= link_to "Topics/Posts", topics_path, {:style => "color:white"} %></li>
         <li class="hidden-sm hidden-xs" id= "myToolTip" data-toggle="tooltip" title="browse and connect with new people"><%= link_to "Users", users_path,{:style => "color:white"}%></li>
         <li id="myToolTip" data-toggle="tooltip" title="view friend's posts"><%= link_to "Friends Wall", user_wall_path(:user_id), {:style => "color:white"}%></li>

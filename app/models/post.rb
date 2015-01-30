@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
+ 
   has_many :comments, dependent: :destroy, as: :commentable
   has_many :votes, dependent: :destroy
   belongs_to :user

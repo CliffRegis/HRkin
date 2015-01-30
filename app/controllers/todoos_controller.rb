@@ -23,12 +23,6 @@ class TodoosController < ApplicationController
     end
   end
 
-  def show
-    @todo = Todoo.find(params[:id])
-    @comments = @todo.comments
-    @comment = Comment.new     
-  end
-
   def update
     @todo = Todoo.find(params[:id])
     if @todo.update_attribute(:done, true)

@@ -21,10 +21,11 @@
         <% end %>
         <br>  
         <br> 
-      <%= link_to 'Edit Post', edit_topic_post_path(@topic, @post), class: 'btn btn-success' 'alert alert-success'  %>
-      <%= link_to "Delete Post",[@topic, @post], :method => :delete, class: 'btn btn-success' 'alert alert-success', :confirm => 'are you sure you want to delete' %> 
+      <%= link_to 'Edit Post', edit_topic_post_path(@topic, @post), class: 'btn btn-primary' %>
+      <%= link_to "Delete Post",[@topic, @post], :method => :delete, class: 'btn btn-primary', :confirm => 'are you sure you want to delete' %> 
     </div>
   </div>
+   <br>
  
 
 

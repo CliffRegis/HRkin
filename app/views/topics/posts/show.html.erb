@@ -22,18 +22,14 @@
   <hr>
     <h3> Comments:</h3>
       <p class="italic"> <%= pluralize(@comments.count,'comment') %> </p>
-   <div>
-      <%= render partial: "comments/comment", locals: {topic: @topic, post: @post, comment: @comment} %> 
-    </div> 
+ 
  </div>
  <table>
   <tbody>
     <% @comments.each do |comment| %>
       <tr>
-        <td><%= image_tag(comment.user.avatar.small.url)if comment.user.avatar? %> &nbsp 
-          <%= comment.content %><small> <i>created by </i> 
-          <%= link_to comment.user.handle, [comment.user, @user] %>
-          <b></b> on <%=comment.created_at.to_formatted_s(:short) %><br></small>&nbsp
+        <td><%= comment.content %><small> <i>created on </i> 
+           <%=comment.created_at.to_formatted_s(:short) %><br></small>&nbsp
 
         <%= link_to "Delete",[@post, comment], :method => :delete, class: 'btn btn-success' 'alert alert-success', :confirm => 'are you sure you want to delete' %> 
           <hr></td>

@@ -21,12 +21,12 @@
 <% if current_user.friends_with?(@user) %>
   <%= form_tag user_friendship_path(current_user, @user.id), method: 'delete' do %>
     <%= hidden_field_tag :old_friend_id, @user.id %>
-    <%= submit_tag 'Remove friend' %>
+    <%= submit_tag 'Remove friend', class: 'btn btn-primary'  %>
   <% end %>
 <% elsif current_user != @user %>
   <%= form_tag user_friendships_path(current_user) do %>
     <%= hidden_field_tag :new_friend_id, @user.id %>
-    <%= submit_tag 'Add friend' %>
+    <%= submit_tag 'Add friend', class: 'btn btn-primary'  %>
   <% end %>
 <% end %>
  <h3> <%= @user.username %> 's comments: </h3>

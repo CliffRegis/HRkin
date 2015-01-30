@@ -22,14 +22,13 @@
     <td ><%= link_to post.title,[@topic, post] %></td>
     <td ><%=pluralize(post.points, 'point') %></td> 
     <td ><%= post.created_at.strftime("%B %e, %Y  %I:%M%p") %></td>
-    
-   </tr>
+  </tr>
     <% end %>
   <tbody>
 </table>
 <br>
 
-<%= link_to 'New Post', new_topic_post_path(@topic, @post), class: 'btn btn-success' 'alert alert-success' %> 
+<%= link_to 'New Post', new_topic_post_path(@topic, @post), class: 'btn btn-primary alert alert-info' %> 
     
 
      

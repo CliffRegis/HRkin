@@ -1,17 +1,20 @@
+<h3><%= @todo.name %></h3>
+ 
+<p><%= link_to "Back to Todo", todoos_path %></p>
 
-<h3><%= @todo.name %> </h3>
- <table>
+<h4>Comments</h4>
+<%= @comments.count %> comments
+
+<table>
   <tbody>
     <% @comments.each do |comment| %>
       <tr>
-        <td><%= comment.content %></td>
+        <td><%= comment.content  %></td>    
       </tr>
     <% end %>
   </tbody>
- </table>
- <%= render "comments/comments" %>
- <div>
-    <div class= 'new-comment'>
-      <%= render :partial => "comments/form", locals: {todoo: @todoo, comment: @comment} %>
-    </div>
-  </div>
+</table>
+
+<%= render "comments/form" %>
+
+
