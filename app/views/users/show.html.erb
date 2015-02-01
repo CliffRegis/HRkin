@@ -1,17 +1,18 @@
 <h3>User details</h3>
 
    
-<% if @user.avatar? %>
-         <%= image_tag @user.avatar %>
-       <% end %>
+  <% if @user.avatar? %>
+    <%= image_tag @user.avatar %>
+  <% end %>
 <h4><%= @user.username%>
 <br>
 <%= @user.email %></h4>
 
+ 
+  <%= render @user.comments %>
 <section>
   <%= render 'shared/stats' %>
-  <%= pluralize(@user.posts.count, 'post') %>,
-  <%= pluralize(@user.comments.count, 'comment') %>,
+  <%= pluralize(@user.posts.count, 'post') %>
 </section>
 
   <div class="span8">
@@ -29,7 +30,5 @@
     <%= submit_tag 'Add friend', class: 'btn btn-primary'  %>
   <% end %>
 <% end %>
- <h3> <%= @user.username %> 's comments: </h3>
- <div>
-  <%= render @user.comments %>
+ 
  </div>

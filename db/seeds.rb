@@ -43,15 +43,15 @@ end
 
 posts = Post.all
 
- 100.times do
-   Comment.create(
-     post: posts.sample,
-     user: users.sample,
-     content: Faker::Lorem.paragraph
-   )
- end
+#  100.times do
+#    comment = Comment.create(
+#      post: posts.sample,
+#      user: users.sample,
+#      content: Faker::Lorem.paragraph
+#    )
+#  end
  
-comments = Comment.all
+# comments = Comment.all
 
  def make_relationships
   users = User.all
@@ -75,7 +75,7 @@ end
    username:     'Admin User',
    email:    'admin@example.com',
    password: 'helloworld',
-   # role:     'admin'
+   role:     'admin'
  )
  admin.skip_confirmation!
  admin.save!
@@ -85,7 +85,7 @@ end
    username:     'Moderator User',
    email:    'moderator@example.com', 
    password: 'helloworld',
-   #role:     'moderator'
+   role:     'moderator'
  )
  moderator.skip_confirmation!
  moderator.save!

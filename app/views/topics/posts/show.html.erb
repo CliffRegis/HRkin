@@ -30,9 +30,13 @@
       <tr>
         <td><%= comment.content %><small> <i>created on </i> 
            <%=comment.created_at.to_formatted_s(:short) %><br></small>&nbsp
-
+        
+        <% if policy(@comment).destroy? %>
         <%= link_to "Delete",[@post, comment], :method => :delete, class: 'btn btn-success' 'alert alert-success', :confirm => 'are you sure you want to delete' %> 
-          <hr></td>
+         <% end %>
+          <hr>
+
+        </td>
       </tr>
     <% end %>
   </tbody>

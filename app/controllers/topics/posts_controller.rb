@@ -1,7 +1,8 @@
 class Topics::PostsController < ApplicationController
    
   def index
-     @posts = Post.all
+    @posts = Post.all
+      authorize @post
   end
 
   def show
@@ -14,18 +15,20 @@ class Topics::PostsController < ApplicationController
   def new
     @topic = Topic.find(params[:topic_id])
     @post = Post.new
+      authorize @post
   end
 
   def edit
     @topic = Topic.find(params[:topic_id])
     @post = Post.find(params[:id])
+      authorize @post
   end
 
   def create
     @topic = Topic.find(params[:topic_id])
     @post = current_user.posts.build(params.require(:post).permit(:title, :id, :post_id, :image, :kind, :content))
     @post.topic = @topic
-    
+      authorize @post
     if @post.save
       flash[:notice] = "Post was saved."
       redirect_to [@topic, @post]
@@ -37,7 +40,7 @@ class Topics::PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-   
+      authorize @post
     if @post.update(params.require(:post).permit(:title, :kind, :content))
       flash[:notice] = "Post was updated."
       redirect_to topic_post_path
@@ -53,8 +56,8 @@ class Topics::PostsController < ApplicationController
     title = @post.title
     authorize @post
     if @post.destroy
-      #flash[:notice] = "post was deleted successfully"
-      flash[:notice] = "\"#{title}\" was deleted successfully."
+      flash[:notice] = "post was deleted successfully"
+      
       redirect_to @topic
     else
       flash[:error] = "There was an error deleting the post."

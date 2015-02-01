@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   respond_to :html, :js
-  # before_filter :load_commentable
+   #before_filter :load_commentable
   
   def create
     @post = Post.find(params[:post_id])
@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
   def destroy
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
-    
+     authorize @comment
     if @comment.destroy
       flash[:notice] = "Comment was removed."
     else
@@ -33,7 +33,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:user_id, :id, :username, :name, :title, :post_id, :content, :commentable_id, :commentable_type)
+    params.require(:comment).permit(:user, :user_id, :id, :username, :name, :title, :post_id, :content, :commentable_id, :commentable_type)
   end
 
   def load_commentable

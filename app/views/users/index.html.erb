@@ -13,7 +13,7 @@
       <th></th>
       <th><id: "myToolTip" data-toggle="tooltip" title="Sort by name"><button type="button" class="btn btn-primary">Name</button>&nbsp;&#8661;</th>
       <th><id: "myToolTip" data-toggle="tooltip" title="Sort by total number of posts"><button type="button" class="btn btn-primary">Total posts</button>&#8661;</th>
-      <th><id: "myToolTip" data-toggle="tooltip" title="Sort by comment total"><button type="button" class="btn btn-primary">Total comments</button>&#8661;</th>
+      
       
     </tr>
   <thead>
@@ -22,8 +22,8 @@
   <tr>
     <td><%= image_tag(user.avatar.profile.url) %> </td>
     <td ><%= link_to user.handle, user %> </td>
-    <td ><%= user.posts.count %> </td> 
-    <td ><%= user.comments.count %>  </td>
+    <td ><%= pluralize(user.posts.count, 'post') %> </td> 
+    
   </tr>
     <% end %>
   <tbody>

@@ -15,7 +15,7 @@ class ApplicationPolicy
   end
 
   def create?
-    false
+    #false
     user.present?
   end
 
@@ -24,7 +24,7 @@ class ApplicationPolicy
   end
 
   def update?
-    false
+    #false
     user.present? && (record.user == user || user.role?(:admin))
   end
 
@@ -33,7 +33,7 @@ class ApplicationPolicy
   end
 
   def destroy?
-    false
+    #false
     update?
   end
 

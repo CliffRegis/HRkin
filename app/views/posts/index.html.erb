@@ -1,6 +1,10 @@
 
 <h1>HRkin Posts</h1>
 
+<% if policy(Post.new).create? %>
+  <%= link_to "New Post", new_post_path, class: 'btn btn-success' %>
+<% end %>
+
 <% @posts.each do |post| %>
   <div class="media">
    <%= render partial: 'votes/vote', locals: { post: post} %>
