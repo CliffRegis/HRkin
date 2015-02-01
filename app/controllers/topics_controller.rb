@@ -13,9 +13,14 @@ helper_method :sort_column, :sort_direction
   def show
     @topics = Topic.paginate(page: params[:page], per_page: 10)
     @topic = Topic.find(params[:id])
-    @post = Post.find(params[:post_id])
     @posts = @topic.posts
-    @comments = @post.comments
+
+
+    # @topics = Topic.paginate(page: params[:page], per_page: 10)
+    # @topic = Topic.find(params[:id])
+    # @post = Post.find(params[:post_id])
+    # @posts = @topic.posts
+    # @comments = @post.comments
   end
 
   def edit
