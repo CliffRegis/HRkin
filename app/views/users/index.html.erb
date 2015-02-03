@@ -10,7 +10,7 @@
 <table id="postindex", class="table table-hover" >
   <thead>
     <tr>
-      <th></th>
+      
       <th><id: "myToolTip" data-toggle="tooltip" title="Sort by name"><button type="button" class="btn btn-primary">Name</button>&nbsp;&#8661;</th>
       <th><id: "myToolTip" data-toggle="tooltip" title="Sort by total number of posts"><button type="button" class="btn btn-primary">Total posts</button>&#8661;</th>
       
@@ -20,10 +20,8 @@
   <tbody>
    <% @users.each do |user| %>
   <tr>
-    <td><%= image_tag(user.avatar.profile.url) %> </td>
-    <td ><%= link_to user.handle, user %> </td>
-    <td ><%= pluralize(user.posts.count, 'post') %> </td> 
-    
+    <td><%= image_tag(user.avatar.profile.url) %> <%= link_to user.handle, user %> </td>
+    <td ><%= user.posts.count  %> </td> 
   </tr>
     <% end %>
   <tbody>

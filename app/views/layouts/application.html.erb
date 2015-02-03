@@ -17,7 +17,10 @@
 
   <script type="text/javascript" class="init">
     $(document).ready(function() {
-      $('#postindex').DataTable( );
+      $('#postindex').DataTable( {
+        "order": [[ 1, "desc" ]]
+    } );
+      
   });
 
   </script>
