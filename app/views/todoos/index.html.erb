@@ -8,7 +8,7 @@
  
 <% @todos.each do |t| %>
   <p>
-    <strong> * <%=link_to t.name, t %> </strong>
+    <strong> * <%= t.name %> </strong>
     <small><%= t.countdown %> days</small>
     <small> <%= link_to 'Mark as Done', todoo_path(t), 
     :method => :put %> </small>

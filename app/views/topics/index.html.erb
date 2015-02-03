@@ -12,10 +12,11 @@
         <span id= "myToolTip" data-toggle="tooltip" title="Click on this link to view all of the posts for this Topic.">
         <%= link_to topic.title, topic_path(topic)  %> </span>
       </h3>
-           
-      <%= link_to 'Edit', edit_topic_path(topic), class: 'btn btn-primary  alert alert-success' %>
-      <%= link_to 'Destroy', topic, class: 'btn btn-primary alert alert-success', method: :delete, data: { confirm: 'Are you sure?' } %>
-      
+      <% if user_signed_in? && current_user.admin? %>
+        <%= link_to 'Edit', edit_topic_path(topic), class: 'btn btn-primary  alert alert-success' %>
+       
+        <%= link_to 'Destroy', topic, class: 'btn btn-primary alert alert-success', method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%end %>
     </div>
      <%= will_paginate @topics %>
   </div>
@@ -23,4 +24,6 @@
 <% end %>
 <br>
 <br>
+<% if ( @user.present? && @user.role == "admin" ) %>   
  <%= link_to 'New Topic', new_topic_path, class: 'btn btn-primary alert alert-success'  %>
+ <% end %>

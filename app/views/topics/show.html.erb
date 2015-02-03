@@ -1,9 +1,8 @@
 
 
-<h1> <%= @topic.title %></h1>
+<h1> <%= @topic.title %>&nbsp<%= link_to 'Back', topics_path, class: 'btn btn-primary alert alert-info' %></h1>
 
-<%= link_to 'Edit Topic', edit_topic_path(@topics) %> |
-<%= link_to 'Back', topics_path %>
+
 <hr>
 <h2> Posts: </h2>
    
@@ -20,7 +19,7 @@
   <tbody>
    <% @posts.each do |post| %>
   <tr>
-    <td ><%= link_to post.title,[@topic, post] %></td>
+    <td ><strong><%= link_to post.title,[@topic, post] %></strong></td>
     <td ><%=pluralize(post.points, 'point') %></td> 
     <td ><%= post.created_at.strftime("%B %e, %Y  %I:%M%p") %></td>
     <td ><%=pluralize(post.comments.count,'comment') %></td> 

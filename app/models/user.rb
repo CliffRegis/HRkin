@@ -49,5 +49,10 @@ class User < ActiveRecord::Base
    role == 'moderator'
   end
   
+  def role?(base_role)
+    role == base_role.to_s
+  end
+
+
   popular 
 end
