@@ -21,15 +21,13 @@
   <tr>
     <td ><strong><%= link_to post.title,[@topic, post] %></strong></td>
     <td ><%=pluralize(post.points, 'point') %></td> 
-    <td ><%= post.created_at.strftime "%Y-%m-%d"  %></td>
+    <td ><%= post.created_at.strftime "%Y-%m-%d %h"  %></td>
     <td ><%=pluralize(post.comments.count,'comment') %></td> 
   </tr>
     <% end %>
   <tbody>
 </table>
 <br>
-
-<!-- post.created_at.strftime("%B %e, %Y  %I:%M%p")  -->
 
 
 <%= link_to 'New Post', new_topic_post_path(@topic, @post), class: 'btn btn-primary alert alert-info' %> 

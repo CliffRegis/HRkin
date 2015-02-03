@@ -6,19 +6,28 @@
 <h2> Need to-do: </h2> </div>
 <h5> You have <%=@todos.count %> item(s) on your "To-do" list.</h5>
  
-<% @todos.each do |t| %>
-  <p>
-    <strong> * <%= t.name %> </strong>
-    <small><%= t.countdown %> days</small>
-    <small> <%= link_to 'Mark as Done', todoo_path(t), 
-    :method => :put %> </small>
-  </p>
- <div>
-   
-   <hr>
-   
-<% end %>
 
+<table id="postindex" class="table table-hover" >
+  <thead>
+    <tr>
+      <th><id: "myToolTip" data-toggle="tooltip" title="Sort by title"><button type="button" class="btn btn-primary">Task</button>&nbsp;&#8661;</th>
+      <th><id: "myToolTip" data-toggle="tooltip" title="Sort by points"><button type="button" class="btn btn-primary"> Countdown</button>&#8661;</th>
+      <th><id: "myToolTip" data-toggle="tooltip" title="Sort by date: Year-Month-Day"><button type="button" class="btn btn-primary">Date</button>&nbsp;&#8661;</th>
+      <th></th>
+    </tr>
+  <thead>
+  <tbody>
+   <% @todos.each do |t| %>
+  <tr>
+    <td ><h4><%= t.name %> </h4></td>
+    <td ><%= t.countdown %> days left!</td> 
+    <td ><%= t.created_at.strftime "%Y-%m-%d %h"  %></td>
+    <td > <%= link_to 'Mark as Done', todoo_path(t), 
+    :method => :put %> </td> 
+  </tr>
+    <% end %>
+  <tbody>
+</table>
 
    <br>
   <p><%= link_to 'Add item to the list', new_todoo_path, class: 'btn btn-success' 'alert alert-success' %> </p>
