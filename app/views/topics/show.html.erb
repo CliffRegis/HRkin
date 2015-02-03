@@ -12,7 +12,7 @@
     <tr>
       <th><id: "myToolTip" data-toggle="tooltip" title="Sort by title"><button type="button" class="btn btn-primary">Title</button>&nbsp;&#8661;</th>
       <th><id: "myToolTip" data-toggle="tooltip" title="Sort by points"><button type="button" class="btn btn-primary">Point</button>&#8661;</th>
-      <th><id: "myToolTip" data-toggle="tooltip" title="Sort by date"><button type="button" class="btn btn-primary">Date</button>&nbsp;&#8661;</th>
+      <th><id: "myToolTip" data-toggle="tooltip" title="Sort by date: Year-Month-Day"><button type="button" class="btn btn-primary">Date</button>&nbsp;&#8661;</th>
       <th><id: "myToolTip" data-toggle="tooltip" title="Sort by comment count"><button type="button" class="btn btn-primary">Comment</button>&nbsp;&#8661;</th>
     </tr>
   <thead>
@@ -21,13 +21,16 @@
   <tr>
     <td ><strong><%= link_to post.title,[@topic, post] %></strong></td>
     <td ><%=pluralize(post.points, 'point') %></td> 
-    <td ><%= post.created_at.strftime("%B %e, %Y  %I:%M%p") %></td>
+    <td ><%= post.created_at.strftime "%Y-%m-%d"  %></td>
     <td ><%=pluralize(post.comments.count,'comment') %></td> 
   </tr>
     <% end %>
   <tbody>
 </table>
 <br>
+
+<!-- post.created_at.strftime("%B %e, %Y  %I:%M%p")  -->
+
 
 <%= link_to 'New Post', new_topic_post_path(@topic, @post), class: 'btn btn-primary alert alert-info' %> 
     
