@@ -1,13 +1,12 @@
 <div class="page-header">
   <center><strong><h1> Friends Page </h1></strong></center>
 </div>
-<div>
+ <div>
   <% @posts.each do |post| %>
     <div class="media">
     <h2> <%= link_to post.title,[post.topic, post] %>
     </h2>
-
-        <h5> <%= post.content %> </h5>
+        <h5> <%= post.content %> </h5>  
     </div>
    
     <br>
@@ -16,7 +15,6 @@
     </small>
     <% end %> 
 </div>
-
 
 <%#topic_post_path(@post, @wall, @topic, post.id) %> 
 
