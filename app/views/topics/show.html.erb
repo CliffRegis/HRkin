@@ -19,7 +19,7 @@
   <tbody>
    <% @posts.each do |post| %>
   <tr>
-    <td ><strong><%= link_to post.title,[@topic, post] %></strong></td>
+    <td > <%= image_tag(post.image.thumb.url) if post.image? %><strong><%= link_to post.title,[@topic, post] %></strong></td>
     <td ><%=pluralize(post.points, 'point') %></td> 
     <td ><%= post.created_at.strftime "%Y-%m-%d " %></td>
     <td ><%=pluralize(post.comments.count,'comment') %></td> 

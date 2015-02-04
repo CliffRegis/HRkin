@@ -26,7 +26,7 @@ class Topics::PostsController < ApplicationController
 
   def create
     @topic = Topic.find(params[:topic_id])
-    @post = current_user.posts.build(params.require(:post).permit(:title, :id, :post_id, :image, :kind, :content))
+    @post = current_user.posts.build(params.require(:post).permit(:image, :title, :id, :post_id, :image, :kind, :content))
     @post.topic = @topic
       authorize @post
     if @post.save
@@ -41,7 +41,7 @@ class Topics::PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
       authorize @post
-    if @post.update(params.require(:post).permit(:title, :kind, :content))
+    if @post.update(params.require(:post).permit(:title, :image, :kind, :content))
       flash[:notice] = "Post was updated."
       redirect_to topic_post_path
     else

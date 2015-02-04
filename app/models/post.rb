@@ -5,6 +5,7 @@ class Post < ActiveRecord::Base
   belongs_to :user
   scope :reverse_relationships, ->(followers) { where user_id: followers }
   belongs_to :topic
+    mount_uploader :image, ImageUploader
     
   # validates :content, length: {minimum: 20}, presence: true
   # searchable do

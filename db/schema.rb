@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150201100937) do
+ActiveRecord::Schema.define(version: 20150204082659) do
 
   create_table "collaborations", force: true do |t|
     t.integer  "user_id"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 20150201100937) do
     t.float    "rank"
     t.string   "kind"
     t.float    "point"
+    t.string   "image"
   end
 
   add_index "posts", ["topic_id"], name: "index_posts_on_topic_id"

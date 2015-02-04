@@ -11,14 +11,16 @@
          <small>by&nbsp<%= link_to post.user.handle,[@post.user, @user] %> </small> 
        </h4>
         </div>
-      </div>  
+      </div> 
+      <%= image_tag(@post.image.picture.url) %>
+        <br>  
       <% if post.kind == 'image' %>
         <%= image_tag post.content, style: "width: 100%" %> 
       <% else %>
-      <%= @post.content %> 
-        <% end %>
-        <br>  
-        <br> 
+        <%= @post.content %> 
+      <% end %>
+       <br> 
+       <br> 
        <% if policy(@post).edit? %>
         <%= link_to 'Edit Post', edit_topic_post_path(@topic, @post), class: 'btn btn-primary' %>
        <% end %>
