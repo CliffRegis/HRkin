@@ -7,6 +7,7 @@ class TodoosController < ApplicationController
     #  end
     @todos = current_user.todoos.where(done: false)
     @todone = current_user.todoos.where(done: true)
+    @alldone = Todoo.all.where(done: true)
      
   end
 

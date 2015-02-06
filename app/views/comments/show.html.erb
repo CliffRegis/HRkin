@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p><%= @comments.content %></p>
+<p><%= @comments.content %></p> 
 <% if policy(@comment).edit? %>
   <%= link_to 'Edit', edit_comment_path(@comment) %>
 <% end %> |

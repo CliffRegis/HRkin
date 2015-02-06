@@ -4,8 +4,7 @@
 
 </div>
 
-<h3>Add collaborators</h3>
-<%= link_to 'Add collaborators', '', id: 'add-collaborators' %>
+<h3><%= link_to 'Add collaborators', '', id: 'add-collaborators' %></h3>
 <div class= "add-collaborators hidden" >
 <%= form_for [current_user, @page] do %>
     <%= hidden_field_tag 'page[user_ids][]',[] %>

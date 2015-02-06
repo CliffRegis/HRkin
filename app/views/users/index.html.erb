@@ -20,7 +20,7 @@
   <tbody>
    <% @users.each do |user| %>
   <tr>
-    <td><%= image_tag(user.avatar.profile.url) %> <%= link_to user.handle, user %> </td>
+    <td><%= image_tag(user.avatar.profile.url, class: "img-circle") %> <%= link_to user.handle, user %> </td>
     <td ><%= user.posts.count  %> </td> 
   </tr>
     <% end %>

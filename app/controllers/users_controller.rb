@@ -20,6 +20,7 @@ class UsersController < ApplicationController
     @pages = @user.pages
     @comments = @user.comments
     @friends_post = @posts
+   
   end
 
   def following

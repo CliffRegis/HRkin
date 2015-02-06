@@ -6,9 +6,9 @@
           <h4 class="media-heading">
            <%= @post.title %> 
         <span class="user_avatars ">
-         <%= image_tag(post.user.avatar.small.url) if post.user.avatar? %>
+         <%= image_tag(post.user.avatar.small.url, class: "img-circle") if post.user.avatar? %>
         </span>
-         <small>by&nbsp<%= link_to post.user.handle,[@post.user, @user] %> </small> 
+         <small> by &nbsp <%= link_to post.user.handle,[@post.user, @user] %> </small> 
        </h4>
         </div>
       </div> 
