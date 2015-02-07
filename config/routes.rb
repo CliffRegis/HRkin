@@ -45,7 +45,7 @@ devise_for :users
   end
   
   resources :topics do
-    resources :posts, except: [:index], controller: 'topics/posts'
+    resources :posts, controller: 'topics/posts'
     resource :wall
   end
   

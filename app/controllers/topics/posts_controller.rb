@@ -1,13 +1,17 @@
 class Topics::PostsController < ApplicationController
    
   def index
+    @topic = Topic.new
+    @topics = Topic.all
     @posts = Post.all
+    @post = Post.find(params[:id])
       authorize @post
   end
 
   def show
     @topic = Topic.find(params[:topic_id])
     @post = Post.find(params[:id])
+    @posts = @topic.posts
     @comments = @post.comments
     @comment = Comment.new  
   end

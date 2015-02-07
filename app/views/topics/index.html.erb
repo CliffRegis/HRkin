@@ -3,27 +3,40 @@
      
   </center>
 </div>
-
-
 <% @topics.each do |topic| %>
-  <div class="media">
-    <div class="media-body">
-      <h3 class="media-heading">
-        <span id= "myToolTip" data-toggle="tooltip" title="Click on this link to view all of the posts for this Topic.">
-        <%= link_to topic.title, topic_path(topic)  %> </span>
-      </h3>
-      <% if user_signed_in? && current_user.admin? %>
-        <%= link_to 'Edit', edit_topic_path(topic), class: 'btn btn-primary  alert alert-success' %>
-       
-        <%= link_to 'Destroy', topic, class: 'btn btn-primary alert alert-success', method: :delete, data: { confirm: 'Are you sure?' } %>
-      <%end %>
-    </div>
-     <%= will_paginate @topics %>
-  </div>
-  <hr>
+  
+       <button type="button" class="btn btn-default"> <%= link_to topic.title, topic_path(topic)  %> </button>
 <% end %>
-<br>
 <br>
 <% if user_signed_in? && current_user.admin? %>   
  <%= link_to 'New Topic', new_topic_path, class: 'btn btn-primary alert alert-success'  %>
  <% end %>
+<hr>
+<div class="page-header">
+  <center><strong><h1 id= "myToolTip" data-toggle="tooltip" title="Click on a title to view the post."> Top HRKin Posts </h1></strong>
+  </center>
+</div>
+
+
+<table id="postindex" class="table table-hover" >
+  <thead>
+    <tr>
+      <th><id: "myToolTip" data-toggle="tooltip" title="Sort by title"><button type="button" class="btn btn-primary">Title</button></th>
+      <th><id: "myToolTip" data-toggle="tooltip" title="Sort by points"><button type="button" class="btn btn-primary">Point</button></th>
+      <th><id: "myToolTip" data-toggle="tooltip" title="Sort by User: Year-Month-Day"><button type="button" class="btn btn-primary">User</button></th>
+      <th><id: "myToolTip" data-toggle="tooltip" title="Sort by date"><button type="button" class="btn btn-primary">Date</button></th>
+    </tr>
+  <thead>
+  <tbody>
+   <% @posts.each do |p| %>
+    <tr>
+      <td > <%= image_tag(p.image.thumb.url) if p.image? %>
+      <strong><%= link_to p.title,[p.topic, p] %> </strong></td>
+      <td ><%= p.points %></td> 
+      <td ><%= image_tag(p.user.avatar.small.url, class: "img-circle") if p.user.avatar? %> <%=p.user.handle %></td> 
+      <td ><%= p.created_at.strftime "%Y-%m-%d " %></td>
+     </tr>
+   <% end %>
+  <tbody>
+</table>
+
