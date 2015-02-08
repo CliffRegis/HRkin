@@ -15,7 +15,6 @@ helper_method :sort_column, :sort_direction
   def show
     @topics = Topic.paginate(page: params[:page], per_page: 10)
     @topic = Topic.find(params[:id])
-    @post = Post.find(params[:id])
     @posts = @topic.posts
 
     # @topics = Topic.paginate(page: params[:page], per_page: 10)

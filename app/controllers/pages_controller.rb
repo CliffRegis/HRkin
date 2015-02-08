@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   def index
     @pages = current_user.pages.order_by_created_at.paginate(page: params[:page], per_page: 10)
     @user = User.find(params[:user_id])
-   
+    @myfriend = current_user.collaborations
   end
   
   def show

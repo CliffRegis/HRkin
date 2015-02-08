@@ -1,17 +1,26 @@
-<div>
-  ******************
-show my friends wiki
-
-
-****************
-
-
+<div class="page-header">
+  <strong><h1> Wiki projects from Friends </h1></strong>
 </div>
+<div>
+  <% @myfriend.each do |p| %>
+  <div class="media">
+    <div class="media-body">
+      <h4 class="media-heading">
+        <%= link_to p.page.title, [p.page.user, p.page] %>
+      </h4>
+      <h5 class="media-heading">
+        <%= truncate (p.page.content) %> <br>
+       <small>Project by:</small> <%= link_to p.page.user.handle,(p.page.user) %>&nbsp<%= image_tag(p.page.user.avatar.small.url, class: "img-circle") %>
+      </h5>
+    </div>
+  </div>
+  <hr>
+<% end %>
 
 
 
 <div class="page-header">
-  <center><strong><h1> Wiki </h1></strong></center>
+  <strong><h1> Your Wikis </h1></strong>
 </div>
 
  
@@ -23,7 +32,7 @@ show my friends wiki
       </h4>
       <h5 class="media-heading">
         <%= truncate (page.content) %> <br>
-       <small>Project by:</small> <%= link_to page.user.handle, [page.user, page] %>&nbsp<%= image_tag(page.user.avatar.small.url, class: "img-circle") %>
+       <small>Project by:</small> <%= link_to page.user.handle,(page.user) %>&nbsp<%= image_tag(page.user.avatar.small.url, class: "img-circle") %>
       </h5>
        
     </div>
