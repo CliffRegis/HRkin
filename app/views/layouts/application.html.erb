@@ -67,7 +67,7 @@
         <% if current_user.pages.empty? %>
         <li id="myToolTip" data-toggle="tooltip" title="create a new wiki project to share with friends"><%= link_to 'Create a new wiki',new_user_page_path(current_user), {:style => "color:white"}%></li>
          <% else %>
-         <li id="myToolTip" data-toggle="tooltip" title="View your wiki projects"><%= link_to 'Your Wikis', user_pages_path(current_user), {:style => "color:white"}%></li>
+         <li id="myToolTip" data-toggle="tooltip" title="View your wiki projects"><%= link_to 'Wikis', user_pages_path(current_user), {:style => "color:white"}%></li>
         <% end %>
         <% end %>          
       </ul>

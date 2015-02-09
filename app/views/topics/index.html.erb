@@ -1,11 +1,10 @@
 <div class="page-header">
-  <center><strong><h1 id= "myToolTip" data-toggle="tooltip" title="Click on a Topic title to view all of the posts for that Topic."> HRKin Topics </h1></strong>
+  <center><strong><h3 id= "myToolTip" data-toggle="tooltip" title="Click on a Topic title to view all of the posts for that Topic."> HRKin Topics </h3></strong>
      
   </center>
 </div>
 <% @topics.each do |topic| %>
-  
-       <button type="button" class="btn btn-default"> <%= link_to topic.title, topic_path(topic)  %> </button>
+     <%= link_to topic.title, topic_path(topic), :class => 'btn btn-default alert alert-default'   %>
 <% end %>
 <br>
 <% if user_signed_in? && current_user.admin? %>   
