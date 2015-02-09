@@ -1,7 +1,9 @@
-<div>
-  <center><strong><h1> HRkin Done items </h1></strong></center>
 
-<h3><center><%= pluralize(@alldone.where("updated_at >= ?", Time.zone.now.beginning_of_day).count ,'task')%> done today throughout the HRKin World!</center></h3>
+  <center><strong><h1> HRkin ToDo items </h1></strong></center>
+  <br>
+<%= link_to 'What others did', '', id: 'myTodoworldlist', class: 'btn btn-success btn-lg' %>
+<div class= "myTodoworldlist hidden" >
+<h4><center><%= pluralize(@alldone.where("updated_at >= ?", Time.zone.now.beginning_of_day).count ,'task')%> done today throughout the HRKin World!</center></h4>
 <table id="postindex" class="table table-hover" >
   <thead>
     <tr>
@@ -23,8 +25,13 @@
      <% end %>
   <tbody>
 </table>
-<hr>
 </div>
+
+<br>
+<hr>
+
+<%= link_to 'Your ToDo list', '', id: 'myTodolist', class: 'btn btn-success btn-lg' %>
+<div class= "myTodolist hidden" >
 
 <div id= "myToolTip" data-toggle="tooltip" title="Tip: only add task that are specfic and will not take too much time to complete, in other words... go for the small wins" >
 <h2> What you need to-do: </h2> </div>
@@ -53,10 +60,14 @@
   <tbody>
 </table>
 
-   <br>
-  <p><%= link_to 'Add item to the list', new_todoo_path, class: 'btn btn-success' 'alert alert-success' %> </p>
-  <hr>
-  <br>
+<p><%= link_to 'Add item to the list', new_todoo_path, class: 'btn btn-success' 'alert alert-success' %> </p>
+</div>
+
+ <br>
+ <hr>
+
+<%= link_to 'Your Done list', '', id: 'myTodonelist', class: 'btn btn-success btn-lg' %>
+<div class= "myTodonelist hidden" >
 <div id= "myToolTip" data-toggle="tooltip" title="congratulations!" >
  <h2>Done: </h2> </div>
 <h5> You have <%=@todone.count %> item(s) on your "Done" list.</h5>
@@ -67,4 +78,7 @@
   </p>
   <hr>
 <%end%>
-
+</div>
+ 
+ <br>
+ <hr>

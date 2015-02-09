@@ -23,9 +23,9 @@ $ (document).ready(function() {
       return false;
   });
 });
-$ (document).ready(function() {
+$(document).ready(function() {
   $('#myToolTip').tooltip();
-  });
+});
 
 $ (document).ready(function() {
   $('#postindex').DataTable();
