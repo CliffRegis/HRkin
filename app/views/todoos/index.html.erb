@@ -1,34 +1,7 @@
 
   <center><strong><h1> HRkin ToDo items </h1></strong></center>
   <br>
-<%= link_to 'What others did', '', id: 'myTodoworldlist', class: 'btn btn-success btn-lg' %>
-<div class= "myTodoworldlist hidden" >
-<h4><center><%= pluralize(@alldone.where("updated_at >= ?", Time.zone.now.beginning_of_day).count ,'task')%> done today throughout the HRKin World!</center></h4>
-<table id="postindex" class="table table-hover" >
-  <thead>
-    <tr>
-      <th><id: "myToolTip" data-toggle="tooltip" title="Sort by tasks"><button type="button" class="btn btn-primary">Task</button>&nbsp;&#8661;</th>
-      <th><id: "myToolTip" data-toggle="tooltip" title="Completed on"><button type="button" class="btn btn-primary"> Done on</button>&#8661;</th>
-      <th><id: "myToolTip" data-toggle="tooltip" title="Sort by user"><button type="button" class="btn btn-primary">User</button>&nbsp;&#8661;</th>
-     
-    </tr>
-  <thead>
-  <tbody>
-   
-  <% @alldone.each do |t| %>
-   <tr>
-     <td ><%= image_tag(t.user.avatar.small.url, class: "img-circle") %>
-      <strong><%= t.name %></strong></td>
-     <td> <%= t.updated_at.strftime "%Y-%m-%d " %></td>
-     <td> <%= t.user.handle %></td>
-   </tr>
-     <% end %>
-  <tbody>
-</table>
-</div>
 
-<br>
-<hr>
 
 <%= link_to 'Your ToDo list', '', id: 'myTodolist', class: 'btn btn-success btn-lg' %>
 <div class= "myTodolist hidden" >
@@ -38,7 +11,7 @@
 <h5> You have <%=@todos.count %> item(s) on your "To-do" list.</h5>
  
 
-<table id="postindex" class="table table-hover" >
+<table id="postindextodo" class="table table-hover" >
   <thead>
     <tr>
       <th><id: "myToolTip" data-toggle="tooltip" title="Sort by tasks"><button type="button" class="btn btn-primary">Task</button>&nbsp;&#8661;</th>
@@ -66,6 +39,7 @@
  <br>
  <hr>
 
+
 <%= link_to 'Your Done list', '', id: 'myTodonelist', class: 'btn btn-success btn-lg' %>
 <div class= "myTodonelist hidden" >
 <div id= "myToolTip" data-toggle="tooltip" title="congratulations!" >
@@ -82,3 +56,32 @@
  
  <br>
  <hr>
+
+
+
+<%= link_to 'What others did', '', id: 'myTodoworldlist', class: 'btn btn-success btn-lg' %>
+<div class= "myTodoworldlist hidden" >
+<h4><center><%= pluralize(@alldone.where("updated_at >= ?", Time.zone.now.beginning_of_day).count ,'task')%> done today throughout the HRKin World!</center></h4>
+
+<table id="postindex" class="table table-hover" >
+  <thead>
+    <tr>
+      <th><id: "myToolTip" data-toggle="tooltip" title="Sort by tasks"><button type="button" class="btn btn-primary">Task</button>&nbsp;&#8661;</th>
+      <th><id: "myToolTip" data-toggle="tooltip" title="Completed on"><button type="button" class="btn btn-primary"> Done on</button>&#8661;</th>
+      <th><id: "myToolTip" data-toggle="tooltip" title="Sort by user"><button type="button" class="btn btn-primary">User</button>&nbsp;&#8661;</th>
+     
+    </tr>
+  <thead>
+  <tbody>
+   
+  <% @alldone.each do |t| %>
+   <tr>
+     <td ><%= image_tag(t.user.avatar.small.url, class: "img-circle") %>
+      <strong><%= t.name %></strong></td>
+     <td> <%= t.updated_at.strftime "%Y-%m-%d " %></td>
+     <td> <%= t.user.handle %></td>
+   </tr>
+     <% end %>
+  <tbody>
+</table>
+</div>
